@@ -180,6 +180,15 @@
   .pad { padding-top: clamp(64px, 9vw, 100px); padding-bottom: clamp(64px, 9vw, 100px); }
   .pad-picks { padding-top: clamp(64px, 9vw, 104px); padding-bottom: clamp(56px, 8vw, 96px); }
 
+  /* Near-me controls: stack on mobile so all four time ranges stay visible */
+  @media (max-width: 560px) {
+    .nearme-controls { flex-direction: column; }
+    .nearme-controls input { flex: 1 1 auto; width: 100%; }
+    .range { flex: 1 1 auto; width: 100%; }
+    .range button { padding: 13px 8px; font-size: 13.5px; }
+    .btn-search { flex: 1 1 auto; width: 100%; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
     .card:hover { transform: none; }
