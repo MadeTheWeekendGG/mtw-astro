@@ -1,0 +1,28 @@
+---
+import Head from '../components/Head.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Analytics from '../components/Analytics.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  showHeader?: boolean;
+  showFooter?: boolean;
+}
+const { title, description, showHeader = true, showFooter = true } = Astro.props;
+const path = Astro.url.pathname;
+---
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <Head title={title} description={description} path={path} />
+</head>
+<body>
+  {showHeader && <Header />}
+  <slot />
+  {showFooter && <Footer />}
+  <Analytics />
+</body>
+</html>

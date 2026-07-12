@@ -1,0 +1,23 @@
+---
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (p: string) => path === p;
+---
+<header class="mast">
+  <div class="mast-inner">
+    <a class="brand" href="/">
+      <svg width="34" height="26" viewBox="0 0 34 26" fill="none" aria-hidden="true" style="flex-shrink:0;">
+        <path d="M2 24 C 8 22, 10 16, 14 14 C 16.5 13, 17.5 12.5, 18.5 11.5" stroke="#E0A45C" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="0.5 5"></path>
+        <path d="M25 1 C 27.8 1, 30 3.2, 30 6 C 30 9.8, 25 14, 25 14 C 25 14, 20 9.8, 20 6 C 20 3.2, 22.2 1, 25 1 Z" fill="#C6642B"></path>
+        <circle cx="25" cy="5.8" r="1.8" fill="#1C241D"></circle>
+      </svg>
+      <span>Made the Weekend</span>
+    </a>
+    <nav class="top">
+      <a href="/guides" aria-current={isActive('/guides') ? 'page' : undefined}>Guides</a>
+      <a href="/regions" aria-current={isActive('/regions') ? 'page' : undefined}>Regions</a>
+      <a href="/experiences" aria-current={isActive('/experiences') ? 'page' : undefined}>Experiences</a>
+      <a href="/near-me" aria-current={isActive('/near-me') ? 'page' : undefined}>Near me</a>
+      <a class="pill" href="/the-weekend-brief">The Weekend Brief</a>
+    </nav>
+  </div>
+</header>

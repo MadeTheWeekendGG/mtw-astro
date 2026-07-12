@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Page not found — Made the Weekend"
+  description="That page could not be found. Head back to the homepage or browse the guides."
+>
+<section class="page-head">
+  <div class="inner" style="max-width:640px;">
+    <svg class="page-motif" width="120" height="44" viewBox="0 0 120 44" fill="none" aria-hidden="true">
+  <path d="M4 40 C 30 34, 40 22, 60 20 C 74 18.5, 82 17, 89 14" stroke="#E0A45C" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="0.5 7" opacity="0.8"></path>
+  <path d="M98 2 C 101.3 2, 104 4.7, 104 8 C 104 12.5, 98 17.5, 98 17.5 C 98 17.5, 92 12.5, 92 8 C 92 4.7, 94.7 2, 98 2 Z" stroke="#E0A45C" stroke-width="1.4" fill="none"></path>
+  <circle cx="98" cy="7.8" r="1.8" fill="#E0A45C"></circle>
+</svg>
+    <p class="eyebrow">Lost the trail</p>
+    <h1>We can't find that page</h1>
+    <p class="lede">The link may be old, or we may have moved something. Let's get you back on the road.</p>
+  </div>
+</section>
+<section class="light" style="padding-top:clamp(48px,7vw,72px);padding-bottom:clamp(72px,10vw,110px);">
+  <div class="wrap" style="max-width:640px;">
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="/" style="background:var(--clay);color:var(--cream);font-size:15px;font-weight:600;padding:14px 26px;border-radius:4px;">Back to the homepage</a>
+      <a href="/guides" style="border:1px solid rgba(28,36,29,0.3);color:var(--forest-deep);font-size:15px;font-weight:600;padding:14px 26px;border-radius:4px;">Browse the guides</a>
+    </div>
+  </div>
+</section>
+<!-- ============ FOOTER ============ -->
+</Base>

@@ -1,0 +1,27 @@
+<script is:inline>
+(function(){
+  var GA_ID='G-KPRK565NZG';
+  function loadGA(){
+    if(window.__gaLoaded) return; window.__gaLoaded=true;
+    var s=document.createElement('script'); s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag; gtag('js',new Date()); gtag('config',GA_ID,{anonymize_ip:true});
+  }
+  try { if(localStorage.getItem('mtw-consent')==='yes'){ loadGA(); } } catch(e){}
+  window.__mtwConsent=function(v){ try{localStorage.setItem('mtw-consent',v);}catch(e){} if(v==='yes'){loadGA();} var el=document.getElementById('cookie-bar'); if(el) el.remove(); };
+  document.addEventListener('DOMContentLoaded',function(){
+    var seen; try{ seen=localStorage.getItem('mtw-consent'); }catch(e){ seen='yes'; }
+    if(seen) return;
+    var bar=document.createElement('div'); bar.id='cookie-bar';
+    bar.setAttribute('role','region'); bar.setAttribute('aria-label','Cookie choices');
+    bar.style.cssText='position:fixed;left:16px;right:16px;bottom:16px;max-width:640px;margin:0 auto;background:#1C241D;border:1px solid rgba(224,164,92,0.3);border-radius:8px;padding:16px 18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;box-shadow:0 12px 40px rgba(0,0,0,0.4);z-index:9999;';
+    bar.innerHTML='<p style="margin:0;flex:1 1 260px;color:rgba(244,237,222,0.85);font-size:13.5px;line-height:1.5;">We use a privacy-friendly analytics cookie to see which guides help. Nothing else.</p>'+
+      '<div style="display:flex;gap:8px;flex-wrap:wrap;">'+
+      '<button onclick="__mtwConsent(&quot;no&quot;)" style="background:transparent;border:1px solid rgba(244,237,222,0.35);color:rgba(244,237,222,0.85);font:inherit;font-size:13.5px;padding:9px 16px;border-radius:4px;cursor:pointer;">No thanks</button>'+
+      '<button onclick="__mtwConsent(&quot;yes&quot;)" style="background:#C6642B;border:none;color:#F4EDDE;font:inherit;font-size:13.5px;font-weight:600;padding:9px 18px;border-radius:4px;cursor:pointer;">Allow</button>'+
+      '</div>';
+    document.body.appendChild(bar);
+  });
+})();
+</script>
