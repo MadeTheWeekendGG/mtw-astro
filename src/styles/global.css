@@ -57,7 +57,7 @@
   .btn-clay:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 
   /* near-me */
-  .nearme-sec { padding: 0 24px; }
+  .nearme-sec { padding: 0 24px clamp(56px, 8vw, 88px); }
   .nearme { max-width: 1120px; margin: -72px auto 0; position: relative; background: var(--forest);
     border: 1px solid rgba(224,164,92,0.22); border-radius: 8px; padding: clamp(28px, 4vw, 44px); box-shadow: 0 24px 60px rgba(28,36,29,0.35); }
   .nearme-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
