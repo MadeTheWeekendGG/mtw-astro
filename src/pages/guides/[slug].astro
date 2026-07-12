@@ -1,0 +1,163 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guide');
+  return guides
+    .filter((g) => g.data.published)
+    .map((g) => ({ params: { slug: g.slug }, props: { guide: g } }));
+}
+
+const { guide } = Astro.props;
+const d = guide.data;
+const { Content } = await guide.render();
+
+const faqSchema = (d.faq && d.faq.length) ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: d.faq.filter(f => f.question && f.answer).map(f => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+} : null;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.title,
+  description: d.metaDescription || d.standfirst || '',
+  author: { '@type': 'Person', name: d.author || 'Made the Weekend' },
+  publisher: { '@type': 'Organization', name: 'Made the Weekend' },
+};
+---
+<Base title={`${d.title} — Made the Weekend`} description={d.metaDescription || d.standfirst || ''}>
+
+  <section class="hero" style="height:clamp(440px,66vh,620px);">
+    <div class={`img ${d.heroImage ? 'has-photo' : ''}`} style={d.heroImage ? `background-image:url('${d.heroImage}')` : ''} data-ph={d.heroAlt || 'Hero image'}></div>
+    <div class="hero-shade"></div>
+    <div class="hero-content">
+      <div class="inner">
+        <div class="hero-copy">
+          <p class="eyebrow" style="color:var(--amber);">{d.region}{d.readTime ? ` · ${d.readTime}` : ''}</p>
+          <h1>{d.title}</h1>
+          {d.standfirst && <p class="hero-standfirst">{d.standfirst}</p>}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light" style="padding:clamp(40px,6vw,72px) 0;">
+    <div class="wrap" style="max-width:760px;">
+
+      <p style="color:var(--sage);font-size:13px;margin:0 0 28px;">
+        Some links below earn us a small commission. It never changes what we recommend.
+      </p>
+
+      {d.quickFacts && (
+        <div style="background:var(--forest);color:var(--cream);border-radius:8px;padding:24px 26px;margin:0 0 40px;">
+          <p class="eyebrow" style="color:var(--amber);margin:0 0 14px;">The quick facts</p>
+          {d.quickFacts.bestBase && (
+            <p style="margin:0 0 8px;font-size:15px;color:var(--cream);">
+              <strong>Best base:</strong> {d.quickFacts.bestBase}
+              {d.quickFacts.bestBasePrice ? ` from ${d.quickFacts.bestBasePrice}` : ''}
+              {d.quickFacts.bestBaseLink && (
+                <> — <a href={d.quickFacts.bestBaseLink} rel="sponsored nofollow" style="color:var(--amber);">check availability →</a></>
+              )}
+            </p>
+          )}
+          {d.quickFacts.idealFor && <p style="margin:0 0 8px;font-size:15px;color:var(--cream);"><strong>Ideal for:</strong> {d.quickFacts.idealFor}</p>}
+          {d.quickFacts.getThere && <p style="margin:0;font-size:15px;color:var(--cream);"><strong>Getting there:</strong> {d.quickFacts.getThere}</p>}
+        </div>
+      )}
+
+      <article class="guide-body">
+        <Content />
+      </article>
+
+      {d.faq && d.faq.length > 0 && (
+        <div style="margin-top:48px;">
+          <h2 class="serif" style="font-size:clamp(24px,3.4vw,32px);color:var(--forest-deep);margin-bottom:20px;">Common questions</h2>
+          {d.faq.map((f) => (
+            <div style="border-top:1px solid rgba(28,36,29,0.14);padding:18px 0;">
+              <p style="font-family:Fraunces,serif;font-weight:600;font-size:18px;color:var(--forest-deep);margin:0 0 8px;">{f.question}</p>
+              <p style="margin:0;color:var(--ink-soft);font-size:15px;line-height:1.6;">{f.answer}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {d.author && (
+        <div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(28,36,29,0.14);">
+          <p style="margin:0;color:var(--forest-deep);font-weight:600;">Written by {d.author}</p>
+          {d.authorNote && <p style="margin:6px 0 0;color:var(--sage);font-size:14px;">{d.authorNote}</p>}
+        </div>
+      )}
+
+    </div>
+  </section>
+
+  <section class="light" style="border-top:1px solid rgba(28,36,29,0.12);border-bottom:1px solid rgba(28,36,29,0.12);">
+    <div class="brief">
+      <p class="eyebrow">The Weekend Brief</p>
+      <h2>One email, every Thursday</h2>
+      <p class="lede">Where to go this weekend, one place to stay that's worth it, and one that isn't. Read in three minutes.</p>
+      <div id="brief-form-wrap">
+        <div class="brief-form">
+          <input type="email" id="brief-email" placeholder="you@example.com" aria-label="Email address" />
+          <button id="brief-signup">Sign up</button>
+        </div>
+        <p id="brief-error" role="alert" hidden style="margin:12px 0 0;color:var(--clay);font-size:13.5px;"></p>
+        <p class="fineprint">Free. No lists of ten. Unsubscribe whenever.</p>
+      </div>
+      <p class="done" id="brief-done" hidden>You're in. See you Thursday.</p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+</Base>
+
+<style>
+  .guide-body :global(h2) { font-family: Fraunces, serif; font-weight: 600; font-size: clamp(24px,3.4vw,32px); color: var(--forest-deep); margin: 40px 0 16px; letter-spacing: -0.01em; }
+  .guide-body :global(h3) { font-family: Fraunces, serif; font-weight: 600; font-size: 21px; color: var(--forest-deep); margin: 28px 0 10px; }
+  .guide-body :global(p) { color: var(--ink-soft); font-size: 17px; line-height: 1.7; margin: 0 0 18px; }
+  .guide-body :global(a) { color: var(--clay); text-decoration: underline; }
+  .guide-body :global(a:hover) { color: var(--amber); }
+  .guide-body :global(ul), .guide-body :global(ol) { color: var(--ink-soft); font-size: 17px; line-height: 1.7; padding-left: 22px; margin: 0 0 18px; }
+  .guide-body :global(li) { margin: 0 0 8px; }
+  .guide-body :global(blockquote) { border-left: 3px solid var(--amber); margin: 24px 0; padding: 4px 0 4px 20px; font-family: Fraunces, serif; font-style: italic; font-size: 19px; color: var(--forest-deep); }
+</style>
+
+<script is:inline>
+(function () {
+  var briefBtn = document.getElementById('brief-signup');
+  if (!briefBtn) return;
+  briefBtn.addEventListener('click', function () {
+    var input = document.getElementById('brief-email');
+    var email = input.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { input.focus(); return; }
+    var errEl = document.getElementById('brief-error');
+    if (errEl) errEl.hidden = true;
+    briefBtn.disabled = true; briefBtn.textContent = 'Signing you up…';
+    fetch('/api/subscribe', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    }).then(function (r) { return r.json().catch(function(){return {ok:false};}); })
+      .then(function (data) {
+        if (data && data.ok) {
+          document.getElementById('brief-form-wrap').hidden = true;
+          document.getElementById('brief-done').hidden = false;
+        } else {
+          briefBtn.disabled = false; briefBtn.textContent = 'Sign up';
+          if (errEl) { errEl.textContent = (data && data.error) || 'Could not sign you up just now. Please try again.'; errEl.hidden = false; }
+        }
+      }).catch(function () {
+        briefBtn.disabled = false; briefBtn.textContent = 'Sign up';
+        if (errEl) { errEl.textContent = 'Could not sign you up just now. Please try again.'; errEl.hidden = false; }
+      });
+  });
+})();
+</script>

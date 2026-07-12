@@ -1,0 +1,135 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="Guides — Made the Weekend"
+  description="Every UK weekend guide we've written, filterable by the kind of weekend you're after."
+>
+<section class="page-head">
+  <div class="inner">
+    <svg class="page-motif" width="120" height="44" viewBox="0 0 120 44" fill="none" aria-hidden="true">
+  <path d="M4 40 C 30 34, 40 22, 60 20 C 74 18.5, 82 17, 89 14" stroke="#E0A45C" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="0.5 7" opacity="0.8"></path>
+  <path d="M98 2 C 101.3 2, 104 4.7, 104 8 C 104 12.5, 98 17.5, 98 17.5 C 98 17.5, 92 12.5, 92 8 C 92 4.7, 94.7 2, 98 2 Z" stroke="#E0A45C" stroke-width="1.4" fill="none"></path>
+  <circle cx="98" cy="7.8" r="1.8" fill="#E0A45C"></circle>
+</svg>
+    <p class="eyebrow">The library</p>
+    <h1>Every guide we've written</h1>
+    <p class="lede">Written after the trip, not before. Only places someone has genuinely been make it in — so the library grows one weekend at a time.</p>
+  </div>
+</section>
+<section class="light" style="padding-top:clamp(48px,7vw,72px);padding-bottom:clamp(64px,9vw,100px);">
+  <div class="wrap">
+    <div class="chips" id="chips"><button class="chip active" data-mood="All">All</button><button class="chip" data-mood="Coast">Coast</button><button class="chip" data-mood="Hills &amp; big walks">Hills &amp; big walks</button><button class="chip" data-mood="Food first">Food first</button><button class="chip" data-mood="Slow &amp; quiet">Slow &amp; quiet</button><button class="chip" data-mood="City weekends">City weekends</button></div>
+    <div class="grid3" id="grid"><a class="g-card" href="/coming-soon" data-moods="Coast|Slow &amp; quiet">
+  <div class="thumb"><div class="img" data-ph="Holkham beach, golden hour"></div></div>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <p class="eyebrow">North Norfolk</p>
+    <h3>The coast that earns the drive</h3>
+    <p class="meta">2 hr 30 from London · 12 min read</p>
+  </div>
+</a><a class="g-card" href="/coming-soon" data-moods="City weekends|Food first">
+  <div class="thumb"><div class="img" data-ph="Bath — Royal Crescent or the abbey"></div></div>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <p class="eyebrow">Somerset</p>
+    <h3>Bath in a weekend</h3>
+    <p class="meta">2 hr 20 from London · 9 min read</p>
+  </div>
+</a><a class="g-card" href="/coming-soon" data-moods="Hills &amp; big walks">
+  <div class="thumb"><div class="img" data-ph="Peak District — a ridge, on foot"></div></div>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <p class="eyebrow">Derbyshire</p>
+    <h3>The Peak District, on foot</h3>
+    <p class="meta">3 hr 30 from London · 11 min read</p>
+  </div>
+</a><a class="g-card" href="/coming-soon" data-moods="Slow &amp; quiet">
+  <div class="thumb"><div class="img" data-ph="Wye Valley — river bend from above"></div></div>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <p class="eyebrow">Monmouthshire</p>
+    <h3>A slow weekend in the Wye Valley</h3>
+    <p class="meta">2 hr 45 from London · 8 min read</p>
+  </div>
+</a><a class="g-card" href="/coming-soon" data-moods="Hills &amp; big walks">
+  <div class="thumb"><div class="img" data-ph="Lake District — water and fells"></div></div>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <p class="eyebrow">Cumbria</p>
+    <h3>Two days in the Lake District</h3>
+    <p class="meta">4 hr 50 from London · 12 min read</p>
+  </div>
+</a><a class="g-card" href="/coming-soon" data-moods="City weekends|Food first">
+  <div class="thumb"><div class="img" data-ph="Edinburgh — closes and rooftops"></div></div>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <p class="eyebrow">Scotland</p>
+    <h3>Edinburgh beyond the Royal Mile</h3>
+    <p class="meta">best by train · 10 min read</p>
+  </div>
+</a><a class="g-card" href="/coming-soon" data-moods="Coast">
+  <div class="thumb"><div class="img" data-ph="Whitby harbour"></div></div>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <p class="eyebrow">North Yorkshire</p>
+    <h3>Whitby, out of season</h3>
+    <p class="meta">4 hr 30 from London · 9 min read</p>
+  </div>
+</a><a class="g-card" href="/coming-soon" data-moods="Slow &amp; quiet|Food first">
+  <div class="thumb"><div class="img" data-ph="Cotswolds lane, early"></div></div>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <p class="eyebrow">Gloucestershire</p>
+    <h3>The Cotswolds without the crowds</h3>
+    <p class="meta">1 hr 50 from London · 10 min read</p>
+  </div>
+</a><a class="g-card" href="/coming-soon" data-moods="Coast|Hills &amp; big walks">
+  <div class="thumb"><div class="img" data-ph="St Davids cliffs"></div></div>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <p class="eyebrow">Pembrokeshire</p>
+    <h3>St Davids and the far west</h3>
+    <p class="meta">4 hr 45 from London · 11 min read</p>
+  </div>
+</a><a class="g-card" href="/coming-soon" data-moods="Hills &amp; big walks|Slow &amp; quiet">
+  <div class="thumb"><div class="img" data-ph="Dartmoor tor at dusk"></div></div>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <p class="eyebrow">Devon</p>
+    <h3>Dartmoor in two days</h3>
+    <p class="meta">3 hr 40 from London · 9 min read</p>
+  </div>
+</a><a class="g-card" href="/coming-soon" data-moods="Coast|Slow &amp; quiet">
+  <div class="thumb"><div class="img" data-ph="Aldeburgh beach huts"></div></div>
+  <div style="display:flex;flex-direction:column;gap:6px;">
+    <p class="eyebrow">Suffolk</p>
+    <h3>Aldeburgh &amp; the Suffolk coast</h3>
+    <p class="meta">2 hr 35 from London · 8 min read</p>
+  </div>
+</a></div>
+  </div>
+</section>
+<script>
+(function(){
+  var chips=document.getElementById('chips'), grid=document.getElementById('grid');
+  chips.addEventListener('click',function(e){
+    var b=e.target.closest('.chip'); if(!b) return;
+    Array.prototype.forEach.call(chips.querySelectorAll('.chip'),function(x){x.classList.remove('active');});
+    b.classList.add('active');
+    var mood=b.getAttribute('data-mood');
+    Array.prototype.forEach.call(grid.querySelectorAll('.g-card'),function(card){
+      var moods=card.getAttribute('data-moods').split('|');
+      card.style.display=(mood==='All'||moods.indexOf(mood)>-1)?'':'none';
+    });
+  });
+})();
+</script>
+<!-- ============ FOOTER ============ -->
+</Base>
+
+<script is:inline>
+(function(){
+  var chips=document.getElementById('chips'), grid=document.getElementById('grid');
+  chips.addEventListener('click',function(e){
+    var b=e.target.closest('.chip'); if(!b) return;
+    Array.prototype.forEach.call(chips.querySelectorAll('.chip'),function(x){x.classList.remove('active');});
+    b.classList.add('active');
+    var mood=b.getAttribute('data-mood');
+    Array.prototype.forEach.call(grid.querySelectorAll('.g-card'),function(card){
+      var moods=card.getAttribute('data-moods').split('|');
+      card.style.display=(mood==='All'||moods.indexOf(mood)>-1)?'':'none';
+    });
+  });
+})();
+</script>

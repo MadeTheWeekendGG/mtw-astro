@@ -4,11 +4,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "tinacms dev -c \"astro dev\"",
+    "build": "node build.mjs",
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^4.16.0"
+    "@tinacms/cli": "^2.5.3",
+    "astro": "^4.16.0",
+    "tinacms": "^3.10.0"
   }
 }

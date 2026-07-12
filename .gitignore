@@ -4,3 +4,7 @@ dist/
 .vercel/
 .env
 .DS_Store
+tina/__generated__/*.json
+tina/__generated__/client.ts
+tina/__generated__/config.prebuild.jsx
+!tina/__generated__/.gitkeep
