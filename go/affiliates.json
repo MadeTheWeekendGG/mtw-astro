@@ -1,0 +1,12 @@
+{
+  "_comment": "Central affiliate config for Made the Weekend. Each key maps a token used in guide content ({{AFFILIATE:key}}) to a real tracked URL. Update a value here and every link to that merchant across the whole site updates at once. Never commit anything to this file without flagging it as a site-wide change.",
+  "_amazonTag": "madetheweeken-21",
+  "links": {
+    "amazon-windproof-layer": {
+      "merchant": "Amazon UK",
+      "product": "Nordic Outland lightweight waterproof/windproof jacket",
+      "url": "https://www.amazon.co.uk/dp/B0D972TDH4?tag=madetheweeken-21",
+      "rel": "sponsored nofollow"
+    }
+  }
+}
