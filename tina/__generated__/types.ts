@@ -190,6 +190,7 @@ export type Guide = Node & Document & {
   heroAlt?: Maybe<Scalars['String']['output']>;
   driveMinsFromLondon?: Maybe<Scalars['Float']['output']>;
   readTime?: Maybe<Scalars['String']['output']>;
+  mapLocation?: Maybe<Scalars['String']['output']>;
   published?: Maybe<Scalars['Boolean']['output']>;
   quickFacts?: Maybe<GuideQuickFacts>;
   whyGo?: Maybe<Scalars['JSON']['output']>;
@@ -263,6 +264,7 @@ export type GuideFilter = {
   heroAlt?: InputMaybe<StringFilter>;
   driveMinsFromLondon?: InputMaybe<NumberFilter>;
   readTime?: InputMaybe<StringFilter>;
+  mapLocation?: InputMaybe<StringFilter>;
   published?: InputMaybe<BooleanFilter>;
   quickFacts?: InputMaybe<GuideQuickFactsFilter>;
   whyGo?: InputMaybe<RichTextFilter>;
@@ -376,6 +378,7 @@ export type GuideMutation = {
   heroAlt?: InputMaybe<Scalars['String']['input']>;
   driveMinsFromLondon?: InputMaybe<Scalars['Float']['input']>;
   readTime?: InputMaybe<Scalars['String']['input']>;
+  mapLocation?: InputMaybe<Scalars['String']['input']>;
   published?: InputMaybe<Scalars['Boolean']['input']>;
   quickFacts?: InputMaybe<GuideQuickFactsMutation>;
   whyGo?: InputMaybe<Scalars['JSON']['input']>;
@@ -389,14 +392,14 @@ export type GuideMutation = {
   authorNote?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type GuidePartsFragment = { __typename: 'Guide', title: string, region: string, standfirst?: string | null, metaDescription?: string | null, heroImage?: string | null, heroAlt?: string | null, driveMinsFromLondon?: number | null, readTime?: string | null, published?: boolean | null, whyGo?: any | null, whereToStay?: any | null, whatToDo?: any | null, whereToEat?: any | null, itinerary?: any | null, proTips?: any | null, author?: string | null, authorNote?: string | null, quickFacts?: { __typename: 'GuideQuickFacts', bestBase?: string | null, bestBasePrice?: string | null, bestBaseLink?: string | null, idealFor?: string | null, getThere?: string | null } | null, faq?: Array<{ __typename: 'GuideFaq', question?: string | null, answer?: string | null } | null> | null };
+export type GuidePartsFragment = { __typename: 'Guide', title: string, region: string, standfirst?: string | null, metaDescription?: string | null, heroImage?: string | null, heroAlt?: string | null, driveMinsFromLondon?: number | null, readTime?: string | null, mapLocation?: string | null, published?: boolean | null, whyGo?: any | null, whereToStay?: any | null, whatToDo?: any | null, whereToEat?: any | null, itinerary?: any | null, proTips?: any | null, author?: string | null, authorNote?: string | null, quickFacts?: { __typename: 'GuideQuickFacts', bestBase?: string | null, bestBasePrice?: string | null, bestBaseLink?: string | null, idealFor?: string | null, getThere?: string | null } | null, faq?: Array<{ __typename: 'GuideFaq', question?: string | null, answer?: string | null } | null> | null };
 
 export type GuideQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type GuideQuery = { __typename?: 'Query', guide: { __typename: 'Guide', id: string, title: string, region: string, standfirst?: string | null, metaDescription?: string | null, heroImage?: string | null, heroAlt?: string | null, driveMinsFromLondon?: number | null, readTime?: string | null, published?: boolean | null, whyGo?: any | null, whereToStay?: any | null, whatToDo?: any | null, whereToEat?: any | null, itinerary?: any | null, proTips?: any | null, author?: string | null, authorNote?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, quickFacts?: { __typename: 'GuideQuickFacts', bestBase?: string | null, bestBasePrice?: string | null, bestBaseLink?: string | null, idealFor?: string | null, getThere?: string | null } | null, faq?: Array<{ __typename: 'GuideFaq', question?: string | null, answer?: string | null } | null> | null } };
+export type GuideQuery = { __typename?: 'Query', guide: { __typename: 'Guide', id: string, title: string, region: string, standfirst?: string | null, metaDescription?: string | null, heroImage?: string | null, heroAlt?: string | null, driveMinsFromLondon?: number | null, readTime?: string | null, mapLocation?: string | null, published?: boolean | null, whyGo?: any | null, whereToStay?: any | null, whatToDo?: any | null, whereToEat?: any | null, itinerary?: any | null, proTips?: any | null, author?: string | null, authorNote?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, quickFacts?: { __typename: 'GuideQuickFacts', bestBase?: string | null, bestBasePrice?: string | null, bestBaseLink?: string | null, idealFor?: string | null, getThere?: string | null } | null, faq?: Array<{ __typename: 'GuideFaq', question?: string | null, answer?: string | null } | null> | null } };
 
 export type GuideConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -408,7 +411,7 @@ export type GuideConnectionQueryVariables = Exact<{
 }>;
 
 
-export type GuideConnectionQuery = { __typename?: 'Query', guideConnection: { __typename?: 'GuideConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'GuideConnectionEdges', cursor: string, node?: { __typename: 'Guide', id: string, title: string, region: string, standfirst?: string | null, metaDescription?: string | null, heroImage?: string | null, heroAlt?: string | null, driveMinsFromLondon?: number | null, readTime?: string | null, published?: boolean | null, whyGo?: any | null, whereToStay?: any | null, whatToDo?: any | null, whereToEat?: any | null, itinerary?: any | null, proTips?: any | null, author?: string | null, authorNote?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, quickFacts?: { __typename: 'GuideQuickFacts', bestBase?: string | null, bestBasePrice?: string | null, bestBaseLink?: string | null, idealFor?: string | null, getThere?: string | null } | null, faq?: Array<{ __typename: 'GuideFaq', question?: string | null, answer?: string | null } | null> | null } | null } | null> | null } };
+export type GuideConnectionQuery = { __typename?: 'Query', guideConnection: { __typename?: 'GuideConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'GuideConnectionEdges', cursor: string, node?: { __typename: 'Guide', id: string, title: string, region: string, standfirst?: string | null, metaDescription?: string | null, heroImage?: string | null, heroAlt?: string | null, driveMinsFromLondon?: number | null, readTime?: string | null, mapLocation?: string | null, published?: boolean | null, whyGo?: any | null, whereToStay?: any | null, whatToDo?: any | null, whereToEat?: any | null, itinerary?: any | null, proTips?: any | null, author?: string | null, authorNote?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, quickFacts?: { __typename: 'GuideQuickFacts', bestBase?: string | null, bestBasePrice?: string | null, bestBaseLink?: string | null, idealFor?: string | null, getThere?: string | null } | null, faq?: Array<{ __typename: 'GuideFaq', question?: string | null, answer?: string | null } | null> | null } | null } | null> | null } };
 
 export const GuidePartsFragmentDoc = gql`
     fragment GuideParts on Guide {
@@ -421,6 +424,7 @@ export const GuidePartsFragmentDoc = gql`
   heroAlt
   driveMinsFromLondon
   readTime
+  mapLocation
   published
   quickFacts {
     __typename
@@ -558,7 +562,7 @@ export const ExperimentalGetTinaClient = () =>
   getSdk(
     generateRequester(
       createClient({
-        url: "https://content.tinajs.io/2.4/content/6458d910-a043-4fcc-a132-16a0d6906341/github/main",
+        url: "http://localhost:4001/graphql",
         queries,
       })
     )

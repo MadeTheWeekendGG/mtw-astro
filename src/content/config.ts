@@ -11,6 +11,7 @@ const guide = defineCollection({
     heroAlt: z.string().optional(),
     driveMinsFromLondon: z.number().optional(),
     readTime: z.string().optional(),
+    mapLocation: z.string().optional(),
     published: z.boolean().default(false),
     quickFacts: z.object({
       bestBase: z.string().optional(),

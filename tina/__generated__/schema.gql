@@ -109,6 +109,7 @@ type Guide implements Node & Document {
   heroAlt: String
   driveMinsFromLondon: Float
   readTime: String
+  mapLocation: String
   published: Boolean
   quickFacts: GuideQuickFacts
   whyGo: JSON
@@ -182,6 +183,7 @@ input GuideFilter {
   heroAlt: StringFilter
   driveMinsFromLondon: NumberFilter
   readTime: StringFilter
+  mapLocation: StringFilter
   published: BooleanFilter
   quickFacts: GuideQuickFactsFilter
   whyGo: RichTextFilter
@@ -247,6 +249,7 @@ input GuideMutation {
   heroAlt: String
   driveMinsFromLondon: Float
   readTime: String
+  mapLocation: String
   published: Boolean
   quickFacts: GuideQuickFactsMutation
   whyGo: JSON

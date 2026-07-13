@@ -95,6 +95,12 @@ export default defineConfig({
             description: "e.g. '12 min read'",
           },
           {
+            type: "string",
+            name: "mapLocation",
+            label: "Map location (where the stay map centres)",
+            description: "e.g. 'Holkham, Norfolk, UK'. Used by the [[STAY22MAP]] marker in the body.",
+          },
+          {
             type: "boolean",
             name: "published",
             label: "Published (visible on the site)",

@@ -8,6 +8,7 @@ fragment GuideParts on Guide {
   heroAlt
   driveMinsFromLondon
   readTime
+  mapLocation
   published
   quickFacts {
     __typename

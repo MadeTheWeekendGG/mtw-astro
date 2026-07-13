@@ -16,6 +16,7 @@ export const GuidePartsFragmentDoc = gql`
   heroAlt
   driveMinsFromLondon
   readTime
+  mapLocation
   published
   quickFacts {
     __typename
@@ -127,7 +128,7 @@ const generateRequester = (client) => {
 export const ExperimentalGetTinaClient = () => getSdk(
   generateRequester(
     createClient({
-      url: "https://content.tinajs.io/2.4/content/6458d910-a043-4fcc-a132-16a0d6906341/github/main",
+      url: "http://localhost:4001/graphql",
       queries
     })
   )
