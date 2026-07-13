@@ -3,6 +3,7 @@ import Head from '../components/Head.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Analytics from '../components/Analytics.astro';
+import Stay22Script from '../components/Stay22Script.astro';
 import '../styles/global.css';
 
 export interface Props {
@@ -24,5 +25,6 @@ const path = Astro.url.pathname;
   <slot />
   {showFooter && <Footer />}
   <Analytics />
+  <Stay22Script />
 </body>
 </html>
