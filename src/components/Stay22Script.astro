@@ -1,0 +1,26 @@
+---
+// Stay22Script.astro — SITE-WIDE affiliate script (Let Me Allez).
+//
+// WHAT THIS DOES:
+//  - LinkSwap: turns accommodation links across the site into tracked Stay22 links.
+//  - Nova: on genuine booking intent, opens a NON-INVASIVE BACKGROUND NEW TAB with the
+//    best booking option. This is the new-tab behaviour George approved (NOT an on-page pop-up).
+//    Per Stay22, Nova shows to only ~3-7% of high-intent users, once per user every ~30-40 days.
+//  - Spark is DELIBERATELY OFF (chosen in the Stay22 dashboard, not here): we place links by hand.
+//
+// TRIAL-AND-WATCH: watch GA4 bounce rate + time-on-page after go-live.
+// To disable instantly: remove this component from the layout. All links revert to normal.
+//
+// lmaID is the Made the Weekend Let Me Allez script ID (from the Stay22 dashboard).
+---
+<script is:inline>
+  (function (s, t, a, y) {
+    s.Stay22 = s.Stay22 || {};
+    s.Stay22.params = { lmaID: '6a5532c468a5337d84f9d40a' };
+    var twenty = t.createElement(a);
+    var two = t.getElementsByTagName(a)[0];
+    twenty.async = 1;
+    twenty.src = y;
+    two.parentNode.insertBefore(twenty, two);
+  })(window, document, 'script', 'https://scripts.stay22.com/letmeallez.js');
+</script>
