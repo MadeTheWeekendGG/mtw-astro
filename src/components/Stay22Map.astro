@@ -1,0 +1,63 @@
+---
+// Stay22Map.astro — reusable accommodation map widget.
+// Usage in a guide: <Stay22Map address="Holkham, Norfolk, UK" label="Places to stay near Holkham" />
+// aid is the Made the Weekend Stay22 affiliate ID; keep it here so every map is tracked consistently.
+const AID = "madetheweekend";
+
+interface Props {
+  address: string;
+  label?: string;
+  checkin?: string;   // optional YYYY-MM-DD
+  checkout?: string;  // optional YYYY-MM-DD
+}
+
+const { address, label, checkin, checkout } = Astro.props;
+
+const params = new URLSearchParams({ aid: AID, address });
+if (checkin) params.set("checkin", checkin);
+if (checkout) params.set("checkout", checkout);
+const src = `https://www.stay22.com/embed/gm?${params.toString()}`;
+---
+
+<figure class="stay22-map">
+  {label && <figcaption class="stay22-map__label">{label}</figcaption>}
+  <iframe
+    src={src}
+    title={label ?? `Accommodation near ${address}`}
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
+  <p class="stay22-map__note">
+    Prices and availability from Booking.com, Expedia, Vrbo and others. We may earn a
+    small commission if you book through the map, at no extra cost to you.
+  </p>
+</figure>
+
+<style>
+  .stay22-map {
+    margin: 2rem 0;
+    padding: 0;
+  }
+  .stay22-map__label {
+    font-family: var(--font-serif, "Fraunces", serif);
+    font-size: 1.15rem;
+    color: var(--forest, #26332A);
+    margin-bottom: 0.6rem;
+  }
+  .stay22-map iframe {
+    width: 100%;
+    height: 420px;
+    border: 1px solid var(--stone, #6E7666);
+    border-radius: 10px;
+    display: block;
+  }
+  .stay22-map__note {
+    font-size: 0.8rem;
+    color: var(--stone, #6E7666);
+    margin-top: 0.5rem;
+    line-height: 1.4;
+  }
+  @media (max-width: 560px) {
+    .stay22-map iframe { height: 340px; }
+  }
+</style>
