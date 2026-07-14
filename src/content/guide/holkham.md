@@ -12,7 +12,7 @@ published: true
 quickFacts:
   bestBase: The Victoria, walkable to both the hall and the beach
   bestBasePrice: £250–300/night incl. breakfast
-  bestBaseLink: https://www.stay22.com/embed/gm?aid=madetheweekend&address=Holkham,+Norfolk,+UK
+  bestBaseLink: https://booking.stay22.com/madetheweekend/JsvPE_APN9
   idealFor: Couples, families and dog owners after big skies and a proper walk
   getThere: About 1 hour from Norwich; roughly 2.5 hours from London. A car is the sensible option.
 faq:
@@ -76,9 +76,9 @@ If grand interiors are your thing, the hall is there too. The combined ticket, a
 
 You can do Holkham as a day trip, but North Norfolk is worth a night or two. There are two hotels I'd point you at with confidence, and a third route if you're watching the budget.
 
-**The Victoria** is the obvious base, and it's a treat. It sits right between the hall and the beach, a short walk to each, which on an estate this spread out is a real luxury. Friendly service, proper country-house comfort, and an ever-changing, local-sourcing restaurant downstairs. It isn't cheap, around £250 a night outside peak season and closer to £300 in it, but that includes a genuinely excellent breakfast, and for a special weekend it earns the price.
+**The Victoria** is the obvious base, and it's a treat. It sits right between the hall and the beach, a short walk to each, which on an estate this spread out is a real luxury. Friendly service, proper country-house comfort, and an ever-changing, local-sourcing restaurant downstairs. It isn't cheap, around £250 a night outside peak season and closer to £300 in it, but that includes a genuinely excellent breakfast, and for a special weekend it earns the price. [Check dates and availability at the Victoria](https://booking.stay22.com/madetheweekend/JsvPE_APN9).
 
-**The Crown in Wells** is a few minutes' drive away in the middle of a lovely harbour town. A characterful place, with free parking (not nothing in this area) and electric car chargers, and some of its rooms have copper baths, which is a lovely thing to request when you book. Wells also puts you within an easy stroll of Holkham: you can walk between the two along the beach or through the pine woods just behind it, one of the best coastal walks in Norfolk.
+**The Crown in Wells** is a few minutes' drive away in the middle of a lovely harbour town. A characterful place, with free parking (not nothing in this area) and electric car chargers, and some of its rooms have copper baths, which is a lovely thing to request when you book. Wells also puts you within an easy stroll of Holkham: you can walk between the two along the beach or through the pine woods just behind it, one of the best coastal walks in Norfolk. [Check dates and availability at the Crown](https://booking.stay22.com/madetheweekend/6XxL5I5jVq).
 
 **On a tighter budget**, don't rule out a self-catering cottage. North Norfolk is dotted with holiday homes, from flint cottages in the villages to barn conversions out in the fields, and taking one for a couple of nights often works out cheaper than a hotel, especially for families or groups, with the bonus of your own kitchen. It also opens up the villages around Holkham (Burnham Market, Brancaster, Wells itself) as bases, all within a short drive.
 
