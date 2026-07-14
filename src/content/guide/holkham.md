@@ -8,10 +8,16 @@ heroAlt: Holkham Lake with Holkham Hall behind it under a spring sky
 driveMinsFromLondon: 150
 readTime: 8 min read
 mapLocation: Holkham, Norfolk, UK
+lat: 52.9525
+lng: 0.8107
+categories:
+  - Coast
+  - Slow & quiet
+dogFriendly: true
 published: true
 quickFacts:
   bestBase: The Victoria, walkable to both the hall and the beach
-  bestBasePrice: £250–300/night incl. breakfast
+  bestBasePrice: £250-300/night incl. breakfast
   bestBaseLink: https://booking.stay22.com/madetheweekend/JsvPE_APN9
   idealFor: Couples, families and dog owners after big skies and a proper walk
   getThere: About 1 hour from Norwich; roughly 2.5 hours from London. A car is the sensible option.
@@ -92,7 +98,7 @@ For a proper meal, two options I'd send you to without hesitation. **French's in
 
 ## A perfect day, in order
 
-If you've got one day and want to do Holkham right: arrive for opening, pay the £6.50 to park, and start with a slow wander to find the deer while the grass is still quiet. Walk to the walled garden (15–20 minutes through the parkland) and give it a proper hour, with coffee at the concession outside. Picnic or café lunch by the lake. Set off for the beach early-to-mid afternoon, allowing the best part of an hour on foot, with a pause at the Lookout. Spend the late afternoon on the sand, walking out far enough that the world goes quiet. Then head to Wells for fish and chips at French's, or back to the Victoria for dinner if you're staying over.
+If you've got one day and want to do Holkham right: arrive for opening, pay the £6.50 to park, and start with a slow wander to find the deer while the grass is still quiet. Walk to the walled garden (15-20 minutes through the parkland) and give it a proper hour, with coffee at the concession outside. Picnic or café lunch by the lake. Set off for the beach early-to-mid afternoon, allowing the best part of an hour on foot, with a pause at the Lookout. Spend the late afternoon on the sand, walking out far enough that the world goes quiet. Then head to Wells for fish and chips at French's, or back to the Victoria for dinner if you're staying over.
 
 ## Pro Tips
 
