@@ -2,20 +2,20 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
-const guides = (await getCollection('guide'))
-  .filter((g) => g.data.published)
+const nearMeGuides = (await getCollection('guide'))
+  .filter((g) => g.data.published && g.data.lat != null && g.data.lng != null)
   .map((g) => ({
     title: g.data.title,
     region: g.data.region,
     read: g.data.readTime || '',
-    mins: g.data.driveMinsFromLondon ?? null,
+    lat: g.data.lat,
+    lng: g.data.lng,
     url: `/guides/${g.slug}`,
-  }))
-  .filter((g) => g.mins != null);
+  }));
 ---
 <Base
   title="Find trips near me - Made the Weekend"
-  description="Sort every UK weekend guide by real drive time from London."
+  description="Type where you're starting from and see every UK weekend guide sorted by real drive time."
 >
 <section class="page-head">
   <div class="inner">
@@ -26,41 +26,78 @@ const guides = (await getCollection('guide'))
 </svg>
     <p class="eyebrow">Find trips near me</p>
     <h1>Weekends within your reach</h1>
-    <p class="lede">Sorted by drive time from London for now. Pick how far you're willing to go, and we'll show what's within reach. As we add guides and starting points, this grows.</p>
+    <p class="lede">Tell us where you're starting from - a postcode or a town - and we'll sort every guide by real driving time on the road, not as the crow flies.</p>
   </div>
 </section>
 <section class="darker" style="padding-top:clamp(40px,6vw,56px);padding-bottom:clamp(72px,10vw,120px);">
   <div class="wrap" style="max-width:900px;">
-    <div class="range" role="group" aria-label="Maximum drive time" id="range">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch;">
+      <input type="text" id="from" placeholder="Your postcode or town (e.g. NR1 or Manchester)" aria-label="Your starting location"
+        style="flex:2 1 260px;min-width:0;background:var(--forest);border:1px solid rgba(244,237,222,0.22);border-radius:4px;color:var(--cream);font-family:Inter,sans-serif;font-size:15px;padding:14px 16px;outline:none;">
+      <button class="btn-search" id="search" style="flex:1 1 160px;">Show weekends</button>
+    </div>
+    <div class="range" role="group" aria-label="Maximum drive time" id="range" style="margin-top:12px;">
       <button data-h="1">Up to 1 hr</button>
       <button data-h="2">Up to 2 hr</button>
       <button data-h="3" class="active">Up to 3 hr</button>
       <button data-h="5">Up to 5 hr</button>
     </div>
-    <button class="btn-search" id="search" style="margin-top:12px;width:100%;">Show weekends</button>
     <div id="results" style="margin-top:30px;"></div>
   </div>
 </section>
-<script define:vars={{ guides }}>
+<script define:vars={{ nearMeGuides }}>
 (function(){
-  var rangeH=3;
-  var rangeEl=document.getElementById('range');
-  rangeEl.addEventListener('click',function(e){
-    var b=e.target.closest('button'); if(!b) return;
-    Array.prototype.forEach.call(rangeEl.querySelectorAll('button'),function(x){x.classList.remove('active');});
-    b.classList.add('active'); rangeH=parseInt(b.getAttribute('data-h'),10);
+  var rangeH = 3;
+  var rangeEl = document.getElementById('range');
+  rangeEl.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    Array.prototype.forEach.call(rangeEl.querySelectorAll('button'), function(x){ x.classList.remove('active'); });
+    b.classList.add('active'); rangeH = parseInt(b.getAttribute('data-h'), 10);
   });
-  function fmt(m){var h=Math.floor(m/60),mm=m%60;return mm===0?h+' hr':h+' hr '+String(mm).padStart(2,'0');}
-  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-  document.getElementById('search').addEventListener('click',function(){
-    var max=rangeH*60;
-    var rows=guides.filter(function(g){return g.mins<=max;}).sort(function(a,b){return a.mins-b.mins;});
-    var box=document.getElementById('results');
-    if(rows.length===0){box.innerHTML='<p style="color:var(--sage-light);font-size:15px;line-height:1.6;">Nothing we\'ve covered is that close yet. Widen the range, or come back as we add more guides.</p>';return;}
-    var html='<p style="color:var(--amber);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 8px;">'+rows.length+' within a '+rangeH+'-hour drive of London</p><div style="border-top:1px solid rgba(244,237,222,0.14);">';
-    rows.forEach(function(g){html+='<a class="result" href="'+g.url+'" style="border-bottom:1px solid rgba(244,237,222,0.08);"><span class="t">'+fmt(g.mins)+'</span><span class="n">'+esc(g.title)+'</span><span class="r">'+esc(g.region)+(g.read?' · '+esc(g.read):'')+'</span></a>';});
-    html+='</div><p class="results-note">Off-peak drive estimates from central London. Check before you set off.</p>';
-    box.innerHTML=html;
+  function fmt(mins){ var h = Math.floor(mins/60), m = Math.round(mins%60); return h === 0 ? m + ' min' : (m === 0 ? h + ' hr' : h + ' hr ' + String(m).padStart(2,'0')); }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  var box = document.getElementById('results');
+
+  function setStatus(msg){ box.innerHTML = '<p style="color:var(--sage-light);font-size:15px;line-height:1.6;">' + msg + '</p>'; }
+
+  document.getElementById('search').addEventListener('click', function(){
+    var from = document.getElementById('from').value.trim();
+    if(!from){ document.getElementById('from').focus(); return; }
+    setStatus('Working out drive times from ' + esc(from) + '...');
+
+    // 1) Geocode the typed location via Nominatim (OpenStreetMap)
+    fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=gb&q=' + encodeURIComponent(from))
+      .then(function(r){ return r.json(); })
+      .then(function(geo){
+        if(!geo || !geo.length){ setStatus('We could not find that place. Try a postcode or a nearby town.'); return; }
+        var oLat = parseFloat(geo[0].lat), oLng = parseFloat(geo[0].lon);
+
+        // 2) For each guide, ask OSRM for a real road driving time
+        var jobs = nearMeGuides.map(function(g){
+          var url = 'https://router.project-osrm.org/route/v1/driving/' + oLng + ',' + oLat + ';' + g.lng + ',' + g.lat + '?overview=false';
+          return fetch(url).then(function(r){ return r.json(); }).then(function(d){
+            var mins = (d && d.routes && d.routes[0]) ? Math.round(d.routes[0].duration / 60) : null;
+            return { g: g, mins: mins };
+          }).catch(function(){ return { g: g, mins: null }; });
+        });
+
+        Promise.all(jobs).then(function(list){
+          var max = rangeH * 60;
+          var rows = list.filter(function(x){ return x.mins != null && x.mins <= max; })
+                         .sort(function(a,b){ return a.mins - b.mins; });
+          if(rows.length === 0){
+            setStatus('Nothing within a ' + rangeH + '-hour drive of ' + esc(from) + ' yet. Try a longer drive, or check back as we add guides.');
+            return;
+          }
+          var html = '<p style="color:var(--amber);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 8px;">' + rows.length + ' within a ' + rangeH + '-hour drive of ' + esc(from) + '</p><div style="border-top:1px solid rgba(244,237,222,0.14);">';
+          rows.forEach(function(x){
+            html += '<a class="result" href="' + x.g.url + '" style="border-bottom:1px solid rgba(244,237,222,0.08);"><span class="t">' + fmt(x.mins) + '</span><span class="n">' + esc(x.g.title) + '</span><span class="r">' + esc(x.g.region) + (x.g.read ? ' · ' + esc(x.g.read) : '') + '</span></a>';
+          });
+          html += '</div><p class="results-note">Real road drive times from ' + esc(from) + ', off-peak. Check before you set off.</p>';
+          box.innerHTML = html;
+        });
+      })
+      .catch(function(){ setStatus('Something went wrong looking that up. Please try again in a moment.'); });
   });
 })();
 </script>

@@ -5,52 +5,71 @@ import Base from '../layouts/Base.astro';
   title="The Weekend Brief - Made the Weekend"
   description="One email every Thursday: where to go this weekend, one place to stay worth it, and one thing to skip."
 >
-<section class="page-head">
-  <div class="inner" style="max-width:760px;margin:0 auto;text-align:center;">
-    <svg class="page-motif" width="120" height="44" viewBox="0 0 120 44" fill="none" aria-hidden="true" style="margin:0 auto;">
-  <path d="M4 40 C 30 34, 40 22, 60 20 C 74 18.5, 82 17, 89 14" stroke="#E0A45C" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="0.5 7" opacity="0.8"></path>
-  <path d="M98 2 C 101.3 2, 104 4.7, 104 8 C 104 12.5, 98 17.5, 98 17.5 C 98 17.5, 92 12.5, 92 8 C 92 4.7, 94.7 2, 98 2 Z" stroke="#E0A45C" stroke-width="1.4" fill="none"></path>
-  <circle cx="98" cy="7.8" r="1.8" fill="#E0A45C"></circle>
-</svg>
-    <p class="eyebrow">The Weekend Brief</p>
+<section class="brief-page">
+  <div class="brief-card">
+    <svg width="140" height="52" viewBox="0 0 120 44" fill="none" aria-hidden="true" style="margin:0 auto 8px;">
+      <path d="M4 40 C 30 34, 40 22, 60 20 C 74 18.5, 82 17, 89 14" stroke="#E0A45C" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="0.5 7" opacity="0.8"></path>
+      <path d="M98 2 C 101.3 2, 104 4.7, 104 8 C 104 12.5, 98 17.5, 98 17.5 C 98 17.5, 92 12.5, 92 8 C 92 4.7, 94.7 2, 98 2 Z" stroke="#E0A45C" stroke-width="1.4" fill="none"></path>
+      <circle cx="98" cy="7.8" r="1.8" fill="#E0A45C"></circle>
+    </svg>
+    <p class="eyebrow" style="color:var(--amber);">The Weekend Brief</p>
     <h1>One email, every Thursday</h1>
-    <p class="lede" style="margin-left:auto;margin-right:auto;">By Thursday evening you'll know where you're going. Each issue picks one weekend that suits the forecast, one place to stay that's worth the money, and one thing everyone recommends that you can safely skip.</p>
-  </div>
-</section>
-<section class="light" style="padding-top:clamp(48px,7vw,72px);padding-bottom:clamp(64px,9vw,100px);">
-  <div class="wrap" style="max-width:760px;text-align:center;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:44px;text-align:left;">
-      <div><h3 style="font-family:Fraunces,serif;font-size:20px;color:var(--forest-deep);margin-bottom:8px;">One destination</h3><p style="margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6;">Chosen for that weekend's weather, not a listicle of ten.</p></div>
-      <div><h3 style="font-family:Fraunces,serif;font-size:20px;color:var(--forest-deep);margin-bottom:8px;">One place to stay</h3><p style="margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6;">Slept in by us, with the room number to ask for.</p></div>
-      <div><h3 style="font-family:Fraunces,serif;font-size:20px;color:var(--forest-deep);margin-bottom:8px;">One thing to skip</h3><p style="margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6;">And what to do with the hours you get back.</p></div>
-    </div>
+    <p class="brief-lede">By Thursday evening you'll know where you're going. One weekend that suits the forecast, one place to stay that's worth the money, and one thing everyone recommends that you can safely skip.</p>
 
-    <!-- ===== Newsletter signup (posts to /api/subscribe -> Beehiiv) ===== -->
-    <div id="brief-form-wrap">
-      <div class="brief-form" style="justify-content:center;max-width:520px;margin:0 auto;">
+    <div id="brief-form-wrap" class="brief-signup">
+      <div class="brief-form">
         <input type="email" id="brief-email" placeholder="you@example.com" aria-label="Email address">
         <button id="brief-signup">Sign up</button>
       </div>
-      <p id="brief-error" role="alert" hidden style="margin:12px 0 0;color:var(--clay);font-size:13.5px;"></p>
+      <p id="brief-error" role="alert" hidden class="brief-err"></p>
       <p class="fineprint">Free. Read in three minutes. Unsubscribe whenever.</p>
     </div>
     <p class="done" id="brief-done" hidden>You're in. See you Thursday.</p>
 
-    <!--
-      ===== PAST ISSUE PREVIEW: hidden until we send our first real Brief =====
-      REMINDER: once the first newsletter goes out, replace the placeholder below
-      with the real issue (number, date, destination, stay, skip) and remove the
-      hidden attribute on the wrapper div to show it.
-    -->
-    <div hidden style="margin-top:56px;padding-top:32px;border-top:1px solid rgba(28,36,29,0.14);text-align:left;">
-      <p class="eyebrow" style="color:var(--clay);margin-bottom:14px;">Last week's issue</p>
-      <h2 style="font-family:Fraunces,serif;font-weight:600;font-size:clamp(24px,3.4vw,32px);color:var(--forest-deep);margin-bottom:14px;">[Issue headline]</h2>
-      <p style="margin:0 0 18px;color:var(--ink-soft);font-size:15px;line-height:1.65;max-width:60ch;">[One-paragraph summary of the destination.]</p>
-      <p style="margin:0 0 6px;color:var(--forest-deep);font-size:14.5px;"><strong>Stay</strong> - [the place].</p>
-      <p style="margin:0;color:var(--forest-deep);font-size:14.5px;"><strong>Skip</strong> - [the thing to skip].</p>
+    <div class="brief-three">
+      <div><span class="n">01</span><h3>One destination</h3><p>Chosen for that weekend's weather, not a listicle of ten.</p></div>
+      <div><span class="n">02</span><h3>One place to stay</h3><p>Slept in by us, with the room number to ask for.</p></div>
+      <div><span class="n">03</span><h3>One thing to skip</h3><p>And what to do with the hours you get back.</p></div>
     </div>
   </div>
 </section>
+
+<!--
+  ===== PAST ISSUE PREVIEW: hidden until we send our first real Brief =====
+  REMINDER: once the first newsletter goes out, fill in the real issue below
+  and remove the hidden attribute to show it.
+-->
+<section hidden style="background:var(--cream);padding:0 24px clamp(64px,9vw,100px);">
+  <div style="max-width:640px;margin:0 auto;padding-top:8px;border-top:1px solid rgba(28,36,29,0.14);text-align:left;">
+    <p class="eyebrow" style="color:var(--clay);margin:32px 0 14px;">Last week's issue</p>
+    <h2 style="font-family:Fraunces,serif;font-weight:600;font-size:clamp(24px,3.4vw,32px);color:var(--forest-deep);margin-bottom:14px;">[Issue headline]</h2>
+    <p style="margin:0 0 18px;color:var(--ink-soft);font-size:15px;line-height:1.65;">[One-paragraph summary of the destination.]</p>
+    <p style="margin:0 0 6px;color:var(--forest-deep);font-size:14.5px;"><strong>Stay</strong> - [the place].</p>
+    <p style="margin:0;color:var(--forest-deep);font-size:14.5px;"><strong>Skip</strong> - [the thing to skip].</p>
+  </div>
+</section>
+
+<style>
+  .brief-page { background: var(--forest-deep); min-height: 72vh; display: flex; align-items: center; justify-content: center; padding: clamp(56px,10vw,110px) 24px; }
+  .brief-card { max-width: 620px; width: 100%; text-align: center; }
+  .brief-card h1 { font-family: Fraunces, serif; font-weight: 640; font-size: clamp(32px,5vw,54px); line-height: 1.05; letter-spacing: -0.02em; color: var(--cream); margin: 6px 0 0; text-wrap: balance; }
+  .brief-lede { font-family: Fraunces, serif; font-style: italic; font-size: clamp(16px,2vw,20px); line-height: 1.5; color: rgba(244,237,222,0.82); max-width: 48ch; margin: 18px auto 0; }
+  .brief-signup { margin: 36px auto 0; max-width: 520px; }
+  .brief-form { display: flex; gap: 10px; }
+  .brief-form input { flex: 1 1 auto; min-width: 0; background: var(--cream-bright); border: 1px solid rgba(244,237,222,0.25); border-radius: 5px; color: var(--forest-deep); font-family: Inter, sans-serif; font-size: 15px; padding: 15px 16px; outline: none; }
+  .brief-form input:focus { border-color: var(--amber); }
+  .brief-form button { flex: 0 0 auto; background: var(--clay); border: none; border-radius: 5px; color: var(--cream); font-family: Inter, sans-serif; font-size: 15px; font-weight: 600; padding: 15px 28px; cursor: pointer; transition: background 0.18s ease; }
+  .brief-form button:hover { background: var(--amber); color: var(--forest-deep); }
+  .brief-err { margin: 12px 0 0; color: var(--amber); font-size: 13.5px; }
+  .brief-signup .fineprint { margin: 14px 0 0; color: var(--sage-light); font-size: 13px; }
+  .brief-card .done { margin: 36px 0 0; font-family: Fraunces, serif; font-style: italic; font-size: 22px; color: var(--amber); }
+  .brief-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin: 56px auto 0; text-align: left; max-width: 560px; }
+  .brief-three .n { font-family: Fraunces, serif; font-size: 13px; color: var(--amber); letter-spacing: 0.1em; }
+  .brief-three h3 { font-family: Fraunces, serif; font-weight: 600; font-size: 17px; color: var(--cream); margin: 8px 0 6px; }
+  .brief-three p { margin: 0; color: var(--sage-light); font-size: 13.5px; line-height: 1.55; }
+  @media (max-width: 620px) { .brief-three { grid-template-columns: 1fr; gap: 22px; } .brief-form { flex-wrap: wrap; } .brief-form button { width: 100%; } }
+</style>
+
 <script>
 (function(){
   var btn=document.getElementById('brief-signup'); if(!btn) return;
