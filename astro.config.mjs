@@ -3,6 +3,6 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   site: 'https://madetheweekend.com',
-  build: { format: 'file' },
+  build: { format: 'directory' },
   integrations: [mdx()],
 });
