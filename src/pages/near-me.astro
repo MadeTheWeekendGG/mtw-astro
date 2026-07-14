@@ -1,9 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const guides = (await getCollection('guide'))
+  .filter((g) => g.data.published)
+  .map((g) => ({
+    title: g.data.title,
+    region: g.data.region,
+    read: g.data.readTime || '',
+    mins: g.data.driveMinsFromLondon ?? null,
+    url: `/guides/${g.slug}`,
+  }))
+  .filter((g) => g.mins != null);
 ---
 <Base
-  title="Find trips near me — Made the Weekend"
-  description="Sort every UK weekend guide by real drive or train time from where you are."
+  title="Find trips near me - Made the Weekend"
+  description="Sort every UK weekend guide by real drive time from London."
 >
 <section class="page-head">
   <div class="inner">
@@ -14,99 +26,42 @@ import Base from '../layouts/Base.astro';
 </svg>
     <p class="eyebrow">Find trips near me</p>
     <h1>Weekends within your reach</h1>
-    <p class="lede">Tell us where you're starting from and how far you'll go. We sort every guide by real drive time, not as the crow flies — and you can switch to the train.</p>
+    <p class="lede">Sorted by drive time from London for now. Pick how far you're willing to go, and we'll show what's within reach. As we add guides and starting points, this grows.</p>
   </div>
 </section>
 <section class="darker" style="padding-top:clamp(40px,6vw,56px);padding-bottom:clamp(72px,10vw,120px);">
   <div class="wrap" style="max-width:900px;">
-    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch;">
-      <input type="text" id="from" placeholder="Where are you starting from?" aria-label="Your starting location"
-        style="flex:2 1 240px;min-width:0;background:var(--forest);border:1px solid rgba(244,237,222,0.22);border-radius:4px;color:var(--cream);font-family:Inter,sans-serif;font-size:15px;padding:14px 16px;outline:none;">
-      <div class="range" role="group" aria-label="Travel mode" id="mode">
-        <button data-mode="car" class="active">By car</button>
-        <button data-mode="train">By train</button>
-      </div>
-    </div>
-    <div class="range" role="group" aria-label="Maximum travel time" id="range" style="margin-top:12px;">
+    <div class="range" role="group" aria-label="Maximum drive time" id="range">
       <button data-h="1">Up to 1 hr</button>
       <button data-h="2">Up to 2 hr</button>
       <button data-h="3" class="active">Up to 3 hr</button>
-      <button data-h="4">Up to 4 hr</button>
+      <button data-h="5">Up to 5 hr</button>
     </div>
     <button class="btn-search" id="search" style="margin-top:12px;width:100%;">Show weekends</button>
     <div id="results" style="margin-top:30px;"></div>
   </div>
 </section>
-<script>
+<script define:vars={{ guides }}>
 (function(){
-  var guides=[
-    {title:'The Cotswolds without the crowds',region:'Gloucestershire',read:10,car:110,train:90,url:'/guides/cotswolds/'},
-    {title:'Bath in a weekend',region:'Somerset',read:9,car:140,train:85,url:'/guides/bath/'},
-    {title:'The coast that earns the drive',region:'North Norfolk',read:12,car:150,train:200,url:'/guides/north-norfolk/'},
-    {title:'Aldeburgh & the Suffolk coast',region:'Suffolk',read:8,car:155,train:145,url:'/guides/suffolk-coast/'},
-    {title:'A slow weekend in the Wye Valley',region:'Monmouthshire',read:8,car:165,train:170,url:'/guides/wye-valley/'},
-    {title:'The Peak District, on foot',region:'Derbyshire',read:11,car:210,train:125,url:'/guides/peak-district/'},
-    {title:'Dartmoor in two days',region:'Devon',read:9,car:220,train:160,url:'/guides/dartmoor/'},
-    {title:'Whitby, out of season',region:'North Yorkshire',read:9,car:270,train:235,url:'/guides/whitby/'},
-    {title:'St Davids and the far west',region:'Pembrokeshire',read:11,car:285,train:300,url:'/guides/st-davids/'},
-    {title:'Two days in the Lake District',region:'Cumbria',read:12,car:290,train:160,url:'/guides/lake-district/'},
-    {title:'Edinburgh beyond the Royal Mile',region:'Scotland',read:10,car:420,train:260,url:'/guides/edinburgh/'}
-  ];
-  var mode='car', rangeH=3;
-  function seg(elId,attr,setter){var el=document.getElementById(elId);el.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;Array.prototype.forEach.call(el.querySelectorAll('button'),function(x){x.classList.remove('active');});b.classList.add('active');setter(b.getAttribute(attr));});}
-  seg('mode','data-mode',function(v){mode=v;});
-  seg('range','data-h',function(v){rangeH=parseInt(v,10);});
+  var rangeH=3;
+  var rangeEl=document.getElementById('range');
+  rangeEl.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    Array.prototype.forEach.call(rangeEl.querySelectorAll('button'),function(x){x.classList.remove('active');});
+    b.classList.add('active'); rangeH=parseInt(b.getAttribute('data-h'),10);
+  });
   function fmt(m){var h=Math.floor(m/60),mm=m%60;return mm===0?h+' hr':h+' hr '+String(mm).padStart(2,'0');}
-  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   document.getElementById('search').addEventListener('click',function(){
-    var from=document.getElementById('from').value.trim()||'central London';
     var max=rangeH*60;
-    var rows=guides.filter(function(g){return g[mode]<=max;}).sort(function(a,b){return a[mode]-b[mode];});
+    var rows=guides.filter(function(g){return g.mins<=max;}).sort(function(a,b){return a.mins-b.mins;});
     var box=document.getElementById('results');
-    var word=mode==='car'?'drive':'train ride';
-    if(rows.length===0){box.innerHTML='<p style="color:var(--sage-light);font-size:15px;line-height:1.6;">Nothing we\'ve covered is that close yet. Widen the range, or switch to the '+(mode==='car'?'train':'car')+' and let someone else '+(mode==='car'?'drive':'take the wheel')+'.</p>';return;}
-    var html='<p style="color:var(--amber);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 8px;">'+rows.length+' within a '+rangeH+'-hour '+word+'</p><div style="border-top:1px solid rgba(244,237,222,0.14);">';
-    rows.forEach(function(g){html+='<a class="result" href="'+g.url+'" style="border-bottom:1px solid rgba(244,237,222,0.08);"><span class="t">'+fmt(g[mode])+'</span><span class="n">'+esc(g.title)+'</span><span class="r">'+esc(g.region)+' · '+g.read+' min</span></a>';});
-    html+='</div><p class="results-note">Off-peak estimates from '+esc(from)+'. Check before you set off.</p>';
+    if(rows.length===0){box.innerHTML='<p style="color:var(--sage-light);font-size:15px;line-height:1.6;">Nothing we\'ve covered is that close yet. Widen the range, or come back as we add more guides.</p>';return;}
+    var html='<p style="color:var(--amber);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 8px;">'+rows.length+' within a '+rangeH+'-hour drive of London</p><div style="border-top:1px solid rgba(244,237,222,0.14);">';
+    rows.forEach(function(g){html+='<a class="result" href="'+g.url+'" style="border-bottom:1px solid rgba(244,237,222,0.08);"><span class="t">'+fmt(g.mins)+'</span><span class="n">'+esc(g.title)+'</span><span class="r">'+esc(g.region)+(g.read?' · '+esc(g.read):'')+'</span></a>';});
+    html+='</div><p class="results-note">Off-peak drive estimates from central London. Check before you set off.</p>';
     box.innerHTML=html;
   });
 })();
 </script>
-<!-- ============ FOOTER ============ -->
 </Base>
-
-<script is:inline>
-(function(){
-  var guides=[
-    {title:'The Cotswolds without the crowds',region:'Gloucestershire',read:10,car:110,train:90,url:'/guides/cotswolds/'},
-    {title:'Bath in a weekend',region:'Somerset',read:9,car:140,train:85,url:'/guides/bath/'},
-    {title:'The coast that earns the drive',region:'North Norfolk',read:12,car:150,train:200,url:'/guides/north-norfolk/'},
-    {title:'Aldeburgh & the Suffolk coast',region:'Suffolk',read:8,car:155,train:145,url:'/guides/suffolk-coast/'},
-    {title:'A slow weekend in the Wye Valley',region:'Monmouthshire',read:8,car:165,train:170,url:'/guides/wye-valley/'},
-    {title:'The Peak District, on foot',region:'Derbyshire',read:11,car:210,train:125,url:'/guides/peak-district/'},
-    {title:'Dartmoor in two days',region:'Devon',read:9,car:220,train:160,url:'/guides/dartmoor/'},
-    {title:'Whitby, out of season',region:'North Yorkshire',read:9,car:270,train:235,url:'/guides/whitby/'},
-    {title:'St Davids and the far west',region:'Pembrokeshire',read:11,car:285,train:300,url:'/guides/st-davids/'},
-    {title:'Two days in the Lake District',region:'Cumbria',read:12,car:290,train:160,url:'/guides/lake-district/'},
-    {title:'Edinburgh beyond the Royal Mile',region:'Scotland',read:10,car:420,train:260,url:'/guides/edinburgh/'}
-  ];
-  var mode='car', rangeH=3;
-  function seg(elId,attr,setter){var el=document.getElementById(elId);el.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;Array.prototype.forEach.call(el.querySelectorAll('button'),function(x){x.classList.remove('active');});b.classList.add('active');setter(b.getAttribute(attr));});}
-  seg('mode','data-mode',function(v){mode=v;});
-  seg('range','data-h',function(v){rangeH=parseInt(v,10);});
-  function fmt(m){var h=Math.floor(m/60),mm=m%60;return mm===0?h+' hr':h+' hr '+String(mm).padStart(2,'0');}
-  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-  document.getElementById('search').addEventListener('click',function(){
-    var from=document.getElementById('from').value.trim()||'central London';
-    var max=rangeH*60;
-    var rows=guides.filter(function(g){return g[mode]<=max;}).sort(function(a,b){return a[mode]-b[mode];});
-    var box=document.getElementById('results');
-    var word=mode==='car'?'drive':'train ride';
-    if(rows.length===0){box.innerHTML='<p style="color:var(--sage-light);font-size:15px;line-height:1.6;">Nothing we\'ve covered is that close yet. Widen the range, or switch to the '+(mode==='car'?'train':'car')+' and let someone else '+(mode==='car'?'drive':'take the wheel')+'.</p>';return;}
-    var html='<p style="color:var(--amber);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 8px;">'+rows.length+' within a '+rangeH+'-hour '+word+'</p><div style="border-top:1px solid rgba(244,237,222,0.14);">';
-    rows.forEach(function(g){html+='<a class="result" href="'+g.url+'" style="border-bottom:1px solid rgba(244,237,222,0.08);"><span class="t">'+fmt(g[mode])+'</span><span class="n">'+esc(g.title)+'</span><span class="r">'+esc(g.region)+' · '+g.read+' min</span></a>';});
-    html+='</div><p class="results-note">Off-peak estimates from '+esc(from)+'. Check before you set off.</p>';
-    box.innerHTML=html;
-  });
-})();
-</script>
