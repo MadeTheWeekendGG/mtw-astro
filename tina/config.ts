@@ -1,6 +1,6 @@
 import { defineConfig } from "tinacms";
 
-// Your GitHub default branch (usually "main")
+// Your GitHub default branch (usually "main") 
 const branch =
   process.env.TINA_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
