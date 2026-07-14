@@ -1,6 +1,16 @@
 ---
+import { getCollection } from 'astro:content';
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isActive = (p: string) => path === p;
+
+// Fixed category list for the Guides dropdown
+const categories = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Dog-friendly'];
+function catSlug(c: string) { return c.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
+
+// Regions derived from real published guides
+const published = (await getCollection('guide')).filter((g) => g.data.published);
+const regions = Array.from(new Set(published.map((g) => g.data.region))).sort();
+function regionSlug(name: string) { return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
 ---
 <header class="mast">
   <div class="mast-inner">
@@ -13,11 +23,51 @@ const isActive = (p: string) => path === p;
       <span>Made the Weekend</span>
     </a>
     <nav class="top">
-      <a href="/guides" aria-current={isActive('/guides') ? 'page' : undefined}>Guides</a>
-      <a href="/regions" aria-current={isActive('/regions') ? 'page' : undefined}>Regions</a>
+      <div class="nav-item">
+        <a href="/guides" aria-current={isActive('/guides') ? 'page' : undefined}>Guides</a>
+        <div class="nav-drop">
+          <a href="/guides">All guides</a>
+          {categories.map((c) => (
+            <a href={`/guides/category/${catSlug(c)}`}>{c}</a>
+          ))}
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="/regions" aria-current={isActive('/regions') ? 'page' : undefined}>Regions</a>
+        <div class="nav-drop">
+          <a href="/regions">All regions</a>
+          {regions.map((r) => (
+            <a href={`/regions/${regionSlug(r)}`}>{r}</a>
+          ))}
+        </div>
+      </div>
       <a href="/experiences" aria-current={isActive('/experiences') ? 'page' : undefined}>Experiences</a>
       <a href="/near-me" aria-current={isActive('/near-me') ? 'page' : undefined}>Near me</a>
       <a class="pill" href="/the-weekend-brief">The Weekend Brief</a>
     </nav>
   </div>
 </header>
+
+<style>
+  .nav-item { position: relative; display: inline-block; }
+  .nav-drop {
+    position: absolute; top: 100%; left: 0; min-width: 200px;
+    background: var(--forest-deep); border: 1px solid rgba(224,164,92,0.25);
+    border-radius: 8px; padding: 8px; margin-top: 6px;
+    display: flex; flex-direction: column; gap: 2px;
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+    box-shadow: 0 16px 40px rgba(28,36,29,0.4); z-index: 50;
+  }
+  .nav-item:hover .nav-drop,
+  .nav-item:focus-within .nav-drop { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-drop a {
+    padding: 9px 12px; border-radius: 5px; font-size: 14px;
+    color: rgba(244,237,222,0.85); white-space: nowrap;
+  }
+  .nav-drop a:hover { background: rgba(224,164,92,0.14); color: var(--amber); }
+  @media (max-width: 760px) {
+    /* On small screens dropdowns would be awkward; show the top-level links only */
+    .nav-drop { display: none; }
+  }
+</style>
