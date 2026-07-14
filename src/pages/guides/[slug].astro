@@ -45,7 +45,7 @@ const articleSchema = {
   publisher: { '@type': 'Organization', name: 'Made the Weekend' },
 };
 ---
-<Base title={`${d.title} — Made the Weekend`} description={d.metaDescription || d.standfirst || ''}>
+<Base title={`${d.title} - Made the Weekend`} description={d.metaDescription || d.standfirst || ''}>
 
   <section class="hero" style="height:clamp(440px,66vh,620px);">
     <div class={`img ${d.heroImage ? 'has-photo' : ''}`} style={d.heroImage ? `background-image:url('${d.heroImage}')` : ''} data-ph={d.heroAlt || 'Hero image'}></div>
@@ -72,7 +72,7 @@ const articleSchema = {
               <strong>Best base:</strong> {d.quickFacts.bestBase}
               {d.quickFacts.bestBasePrice ? ` from ${d.quickFacts.bestBasePrice}` : ''}
               {d.quickFacts.bestBaseLink && (
-                <> — <a href={d.quickFacts.bestBaseLink} rel="sponsored nofollow" style="color:var(--amber);">check availability →</a></>
+                <> - <a href={d.quickFacts.bestBaseLink} rel="sponsored nofollow" style="color:var(--amber);">check availability →</a></>
               )}
             </p>
           )}
