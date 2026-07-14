@@ -12,6 +12,10 @@ const guide = defineCollection({
     driveMinsFromLondon: z.number().optional(),
     readTime: z.string().optional(),
     mapLocation: z.string().optional(),
+    lat: z.number().optional(),
+    lng: z.number().optional(),
+    categories: z.array(z.string()).optional(),
+    dogFriendly: z.boolean().optional(),
     published: z.boolean().default(false),
     quickFacts: z.object({
       bestBase: z.string().optional(),
