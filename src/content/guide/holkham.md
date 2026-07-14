@@ -3,12 +3,12 @@ title: A Perfect Weekend at Holkham, North Norfolk
 region: North Norfolk
 standfirst: Free-roaming deer, a six-acre walled garden, and one of the widest beaches in England, all on one estate an hour from Norwich. Here's how to do a Holkham weekend properly, and the one thing everyone underestimates.
 metaDescription: A first-hand guide to a weekend at Holkham, North Norfolk — the deer, the walled garden, the long walk to the beach, where to eat, and where to stay for every budget.
-heroImage: ""
+heroImage: "/images/holkham-hall-lake.jpg"
 heroAlt: Holkham Lake with Holkham Hall behind it under a spring sky
 driveMinsFromLondon: 150
 readTime: 8 min read
 mapLocation: Holkham, Norfolk, UK
-published: false
+published: true
 quickFacts:
   bestBase: The Victoria, walkable to both the hall and the beach
   bestBasePrice: £250–300/night incl. breakfast
@@ -32,7 +32,13 @@ authorNote: George lives in Norfolk and has walked Holkham's beach and grounds i
 
 ## Why go
 
-The deer give it away. On a spring afternoon in Holkham Park there are two or three hundred of them grazing loose across the grassland, close enough that you can watch a fallow deer rear up on its back legs to strip leaves off a low branch. No fences between you and them, just the sense to keep your distance. You stand there longer than you meant to. That's Holkham in a sentence: a place you keep not-quite-leaving.
+The deer give it away. On a spring afternoon in Holkham Park there are two or three hundred of them grazing loose across the grassland, close enough that you can watch a fallow deer rear up on its back legs to strip leaves off a low branch.
+
+![A fallow deer reared up on its hind legs against a tree, reaching to strip leaves from a branch at Holkham](/images/holkham-deer-reaching-tree.jpg)
+
+No fences between you and them, just the sense to keep your distance. You stand there longer than you meant to. That's Holkham in a sentence: a place you keep not-quite-leaving.
+
+![A herd of fallow deer grazing under the trees in Holkham Park](/images/holkham-deer-herd.jpg)
 
 Most big estates give you a house and a tea room and send you home. Holkham gives you a whole landscape. There's the Palladian hall itself (you've seen the beach in *Shakespeare in Love* even if you didn't know it), a mile-long lake with rowing boats to hire in summer, a six-acre walled garden, miles of walking through woodland and open parkland, and then, over the road, one of the great beaches in England.
 
@@ -48,11 +54,21 @@ And here's the part that catches people out: even once you're at the beach car p
 
 Then you arrive, and it's absurd. Holkham beach is a vast pale sweep backed by dark pine woods, so wide that at low tide the sea is a distant silver line. It swallows crowds: we were there on Easter weekend with plenty of people about, and it still never felt busy, because everyone just spreads out and disappears into it.
 
+![The wide expanse of Holkham beach backed by dark pine woods, with walkers scattered across the sand at low tide](/images/holkham-beach-pines.jpg)
+
 > If you only do one thing at Holkham, walk out onto this beach and keep going until the car park is out of sight behind the trees.
 
 ## What to do
 
-The walled garden is the quiet counterpoint to the beach, and I'd tell you not to skip it. It's about £6.10 for an adult and 85p for a child when we visited (prices creep up later in the season), and it's completely worth it. Inside the six acres there are Georgian and Victorian glasshouses, a working vineyard, a proper kitchen garden, an ornamental garden, and even a small maze. Hundreds of plants and flowers, benches everywhere, and a hush the rest of the estate doesn't quite have. In April you catch the early blooms; by high summer it's fuller, so it rewards a return visit. There's usually a coffee concession just outside the gates with tables to sit at. It's a 15 to 20-minute walk from the visitor reception, through parkland overlooking the lake.
+The walled garden is the quiet counterpoint to the beach, and I'd tell you not to skip it. It's about £6.10 for an adult and 85p for a child when we visited (prices creep up later in the season), and it's completely worth it. Inside the six acres there are Georgian and Victorian greenhouses, a working vineyard, a proper kitchen garden, an ornamental garden, and even a small maze. Hundreds of plants and flowers, benches everywhere, and a hush the rest of the estate doesn't quite have. In April you catch the early blooms; by high summer it's fuller, so it rewards a return visit. There's usually a coffee concession just outside the gates with tables to sit at. It's a 15 to 20-minute walk from the visitor reception, through parkland overlooking the lake.
+
+![Beds of red, purple and white tulips in front of a Victorian greenhouse in the Holkham walled garden](/images/holkham-walled-garden-tulips.jpg)
+
+Step inside the greenhouses and it's warmer and greener again: grapevines trained along the roof, tender plants sheltered from the North Sea wind, and, when we visited, a bird of paradise in full flower.
+
+![Interior of the Victorian greenhouse at Holkham, with grapevines along the roof and tropical plants lining the path](/images/holkham-walled-garden-glasshouse.jpg)
+
+![A bird of paradise flower in bloom, its orange and blue petals lit by the sun, in the Holkham greenhouse](/images/holkham-walled-garden-bird-of-paradise.jpg)
 
 If grand interiors are your thing, the hall is there too. The combined ticket, around £21 for an adult when we visited (rising to £24 later in the season), gets you the state rooms, the walled garden, and a short "Holkham Stories" experience on the estate's past, present and future. One thing to plan for: the hall is only open on Sundays, Mondays and Thursdays. The walled garden and grounds are open daily, but if you want the full ticket, check the day before you build a trip around it.
 
