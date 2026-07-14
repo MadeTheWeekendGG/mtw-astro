@@ -2,6 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
+const CATEGORIES = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Dog-friendly'];
+function catSlug(c) { return c.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
+
 const guides = (await getCollection('guide'))
   .filter((g) => g.data.published)
   .sort((a, b) => (a.data.driveMinsFromLondon ?? 9999) - (b.data.driveMinsFromLondon ?? 9999));
@@ -30,10 +33,16 @@ function driveLabel(mins) {
 </section>
 <section class="light" style="padding-top:clamp(48px,7vw,72px);padding-bottom:clamp(64px,9vw,100px);">
   <div class="wrap">
+    <div class="cat-chips" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;">
+      <a href="/guides" class="chip active">All</a>
+      {CATEGORIES.map((c) => (
+        <a href={`/guides/category/${catSlug(c)}`} class="chip">{c}</a>
+      ))}
+    </div>
     {guides.length === 0 ? (
       <p style="color:var(--sage);font-size:16px;">The first guides are being written now. Check back soon, or join <a href="/the-weekend-brief" style="font-weight:600;">the Brief</a> to hear when they land.</p>
     ) : (
-      <div class="grid3" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:32px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:32px;">
         {guides.map((g) => (
           <a class="g-card" href={`/guides/${g.slug}`} style="display:flex;flex-direction:column;text-decoration:none;">
             <div class="thumb" style="position:relative;border-radius:6px;overflow:hidden;aspect-ratio:3/2;background:var(--forest);">
@@ -42,9 +51,7 @@ function driveLabel(mins) {
             <div style="display:flex;flex-direction:column;gap:6px;padding-top:14px;">
               <p class="eyebrow" style="color:var(--clay);font-size:12px;">{g.data.region}</p>
               <h3 style="font-family:Fraunces,serif;font-weight:600;font-size:22px;line-height:1.15;color:var(--forest-deep);">{g.data.title}</h3>
-              <p class="meta" style="margin:0;font-size:13px;color:var(--sage);">
-                {driveLabel(g.data.driveMinsFromLondon)}{g.data.readTime ? ` · ${g.data.readTime}` : ''}
-              </p>
+              <p class="meta" style="margin:0;font-size:13px;color:var(--sage);">{driveLabel(g.data.driveMinsFromLondon)}{g.data.readTime ? ` · ${g.data.readTime}` : ''}</p>
             </div>
           </a>
         ))}
@@ -52,4 +59,9 @@ function driveLabel(mins) {
     )}
   </div>
 </section>
+<style>
+  .chip { padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(28,36,29,0.2); font-size: 14px; font-weight: 500; color: var(--forest-deep); background: transparent; transition: all 0.15s ease; }
+  .chip:hover { border-color: var(--clay); color: var(--clay); }
+  .chip.active { background: var(--forest-deep); color: var(--cream); border-color: var(--forest-deep); }
+</style>
 </Base>
