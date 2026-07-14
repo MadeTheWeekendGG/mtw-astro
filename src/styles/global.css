@@ -46,7 +46,7 @@
     background: linear-gradient(to top, rgba(28,36,29,0.92) 0%, rgba(28,36,29,0.6) 38%, rgba(28,36,29,0.25) 66%, rgba(28,36,29,0.12) 100%); }
   .hero-motif { position: absolute; top: 36px; right: 5%; opacity: 0.35; pointer-events: none; }
   .hero-content { position: absolute; inset: 0; pointer-events: none; display: flex; align-items: flex-end; }
-  .hero-content .inner { max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 24px clamp(88px, 12vh, 128px) 24px; }
+  .hero-content .inner { max-width: 1200px; width: 100%; margin: 0 auto; padding: clamp(80px, 12vh, 120px) 24px clamp(88px, 12vh, 128px) 24px; }
   .hero-copy { max-width: 640px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
   .hero-copy h1 { font-family: Fraunces, serif; font-weight: 640; font-size: clamp(38px, 6.4vw, 72px); line-height: 1.02; letter-spacing: -0.02em; color: var(--cream); text-wrap: balance; text-shadow: 0 2px 20px rgba(20,26,20,0.5); }
   .hero-standfirst { font-family: Fraunces, serif; font-style: italic; font-weight: 400; font-size: clamp(17px, 2.2vw, 21px); line-height: 1.45; color: rgba(244,237,222,0.9); max-width: 54ch; margin: 0; text-shadow: 0 1px 14px rgba(20,26,20,0.5); }
@@ -55,6 +55,14 @@
     background: var(--clay); color: var(--cream); font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 4px; transition: background 0.18s ease; }
   .btn-clay:hover { background: var(--amber); color: var(--forest-deep); }
   .btn-clay:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  /* interior page header (Guides, Regions, Experiences, Near me, Brief) */
+  .page-head { background: var(--forest-deep); padding: clamp(48px, 8vw, 96px) 24px clamp(40px, 6vw, 64px); }
+  .page-head .inner { max-width: 1200px; margin: 0 auto; }
+  .page-motif { display: block; margin-bottom: 20px; opacity: 0.9; }
+  .page-head .eyebrow { color: var(--amber); margin-bottom: 14px; }
+  .page-head h1 { font-family: Fraunces, serif; font-weight: 640; font-size: clamp(34px, 5.4vw, 60px); line-height: 1.04; letter-spacing: -0.02em; color: var(--cream); text-wrap: balance; }
+  .lede { margin: 18px 0 0; color: rgba(244,237,222,0.82); font-family: Fraunces, serif; font-style: italic; font-size: clamp(16px, 2vw, 20px); line-height: 1.5; max-width: 60ch; }
 
   /* near-me */
   .nearme-sec { padding: 0 24px clamp(56px, 8vw, 88px); }
