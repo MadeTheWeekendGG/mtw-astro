@@ -1,135 +1,312 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Base from '../layouts/Base.astro';
 ---
 <Base
-  title="Guides — Made the Weekend"
-  description="Every UK weekend guide we've written, filterable by the kind of weekend you're after."
+  title="Made the Weekend — UK weekend getaways worth the drive"
+  description="First-hand guides to UK weekends worth the drive. Where to go, where to stay, and what's actually worth it — written one trip at a time."
 >
-<section class="page-head">
-  <div class="inner">
-    <svg class="page-motif" width="120" height="44" viewBox="0 0 120 44" fill="none" aria-hidden="true">
-  <path d="M4 40 C 30 34, 40 22, 60 20 C 74 18.5, 82 17, 89 14" stroke="#E0A45C" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="0.5 7" opacity="0.8"></path>
-  <path d="M98 2 C 101.3 2, 104 4.7, 104 8 C 104 12.5, 98 17.5, 98 17.5 C 98 17.5, 92 12.5, 92 8 C 92 4.7, 94.7 2, 98 2 Z" stroke="#E0A45C" stroke-width="1.4" fill="none"></path>
-  <circle cx="98" cy="7.8" r="1.8" fill="#E0A45C"></circle>
-</svg>
-    <p class="eyebrow">The library</p>
-    <h1>Every guide we've written</h1>
-    <p class="lede">Written after the trip, not before. Only places someone has genuinely been make it in — so the library grows one weekend at a time.</p>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="img has-photo" id="hero-img" style="background-image:url('/images/holkham-hall-lake.jpg');background-size:cover;background-position:center;" data-ph="Holkham beach — pine-backed sand, golden hour"></div>
+  <div class="hero-shade"></div>
+  <svg class="hero-motif" width="220" height="120" viewBox="0 0 220 120" fill="none" aria-hidden="true">
+    <path d="M6 112 C 50 100, 60 66, 104 58 C 140 51, 156 44, 166 34" stroke="#E0A45C" stroke-width="2" stroke-linecap="round" stroke-dasharray="0.5 9"></path>
+    <path d="M178 4 C 183.5 4, 188 8.5, 188 14 C 188 21.5, 178 30, 178 30 C 178 30, 168 21.5, 168 14 C 168 8.5, 172.5 4, 178 4 Z" stroke="#E0A45C" stroke-width="1.6" fill="none"></path>
+    <circle cx="178" cy="13.6" r="3" fill="#E0A45C"></circle>
+  </svg>
+  <div class="hero-content">
+    <div class="inner">
+      <div class="hero-copy">
+        <p class="eyebrow" style="color:var(--amber);">North Norfolk · Worth the drive from London</p>
+        <h1>The coast that earns the drive</h1>
+        <p class="hero-standfirst">A Palladian hall, pine-backed sand for miles and the widest sky in England, about two and a half hours from London.</p>
+        <p class="hero-meta">North Norfolk · 12 min read</p>
+        <a class="btn-clay" href="/guides/holkham">Read the guide<span aria-hidden="true" style="font-size:17px;line-height:1;">→</span></a>
+      </div>
+    </div>
   </div>
 </section>
-<section class="light" style="padding-top:clamp(48px,7vw,72px);padding-bottom:clamp(64px,9vw,100px);">
+
+<!-- ============ NEAR ME TOOL ============ -->
+<section class="nearme-sec" id="near-me">
+  <div class="nearme">
+    <div class="nearme-head">
+      <h2>Weekends within your reach</h2>
+      <p>Guides sorted by real drive time, not as the crow flies.</p>
+    </div>
+    <div class="nearme-controls">
+      <input type="text" id="from" placeholder="Where are you starting from?" aria-label="Your starting location">
+      <div class="range" role="group" aria-label="Maximum drive time" id="range">
+        <button data-h="1">Up to 1 hr</button>
+        <button data-h="2">Up to 2 hr</button>
+        <button data-h="3" class="active">Up to 3 hr</button>
+        <button data-h="4">Up to 4 hr</button>
+      </div>
+      <button class="btn-search" id="search">Show weekends</button>
+    </div>
+    <div class="results" id="results" hidden></div>
+  </div>
+</section>
+
+<!-- ============ THIS WEEKEND'S PICKS ============ -->
+<section class="light pad-picks">
   <div class="wrap">
-    <div class="chips" id="chips"><button class="chip active" data-mood="All">All</button><button class="chip" data-mood="Coast">Coast</button><button class="chip" data-mood="Hills &amp; big walks">Hills &amp; big walks</button><button class="chip" data-mood="Food first">Food first</button><button class="chip" data-mood="Slow &amp; quiet">Slow &amp; quiet</button><button class="chip" data-mood="City weekends">City weekends</button></div>
-    <div class="grid3" id="grid"><a class="g-card" href="/coming-soon" data-moods="Coast|Slow &amp; quiet">
-  <div class="thumb"><div class="img" data-ph="Holkham beach, golden hour"></div></div>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <p class="eyebrow">North Norfolk</p>
-    <h3>The coast that earns the drive</h3>
-    <p class="meta">2 hr 30 from London · 12 min read</p>
-  </div>
-</a><a class="g-card" href="/coming-soon" data-moods="City weekends|Food first">
-  <div class="thumb"><div class="img" data-ph="Bath — Royal Crescent or the abbey"></div></div>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <p class="eyebrow">Somerset</p>
-    <h3>Bath in a weekend</h3>
-    <p class="meta">2 hr 20 from London · 9 min read</p>
-  </div>
-</a><a class="g-card" href="/coming-soon" data-moods="Hills &amp; big walks">
-  <div class="thumb"><div class="img" data-ph="Peak District — a ridge, on foot"></div></div>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <p class="eyebrow">Derbyshire</p>
-    <h3>The Peak District, on foot</h3>
-    <p class="meta">3 hr 30 from London · 11 min read</p>
-  </div>
-</a><a class="g-card" href="/coming-soon" data-moods="Slow &amp; quiet">
-  <div class="thumb"><div class="img" data-ph="Wye Valley — river bend from above"></div></div>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <p class="eyebrow">Monmouthshire</p>
-    <h3>A slow weekend in the Wye Valley</h3>
-    <p class="meta">2 hr 45 from London · 8 min read</p>
-  </div>
-</a><a class="g-card" href="/coming-soon" data-moods="Hills &amp; big walks">
-  <div class="thumb"><div class="img" data-ph="Lake District — water and fells"></div></div>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <p class="eyebrow">Cumbria</p>
-    <h3>Two days in the Lake District</h3>
-    <p class="meta">4 hr 50 from London · 12 min read</p>
-  </div>
-</a><a class="g-card" href="/coming-soon" data-moods="City weekends|Food first">
-  <div class="thumb"><div class="img" data-ph="Edinburgh — closes and rooftops"></div></div>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <p class="eyebrow">Scotland</p>
-    <h3>Edinburgh beyond the Royal Mile</h3>
-    <p class="meta">best by train · 10 min read</p>
-  </div>
-</a><a class="g-card" href="/coming-soon" data-moods="Coast">
-  <div class="thumb"><div class="img" data-ph="Whitby harbour"></div></div>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <p class="eyebrow">North Yorkshire</p>
-    <h3>Whitby, out of season</h3>
-    <p class="meta">4 hr 30 from London · 9 min read</p>
-  </div>
-</a><a class="g-card" href="/coming-soon" data-moods="Slow &amp; quiet|Food first">
-  <div class="thumb"><div class="img" data-ph="Cotswolds lane, early"></div></div>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <p class="eyebrow">Gloucestershire</p>
-    <h3>The Cotswolds without the crowds</h3>
-    <p class="meta">1 hr 50 from London · 10 min read</p>
-  </div>
-</a><a class="g-card" href="/coming-soon" data-moods="Coast|Hills &amp; big walks">
-  <div class="thumb"><div class="img" data-ph="St Davids cliffs"></div></div>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <p class="eyebrow">Pembrokeshire</p>
-    <h3>St Davids and the far west</h3>
-    <p class="meta">4 hr 45 from London · 11 min read</p>
-  </div>
-</a><a class="g-card" href="/coming-soon" data-moods="Hills &amp; big walks|Slow &amp; quiet">
-  <div class="thumb"><div class="img" data-ph="Dartmoor tor at dusk"></div></div>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <p class="eyebrow">Devon</p>
-    <h3>Dartmoor in two days</h3>
-    <p class="meta">3 hr 40 from London · 9 min read</p>
-  </div>
-</a><a class="g-card" href="/coming-soon" data-moods="Coast|Slow &amp; quiet">
-  <div class="thumb"><div class="img" data-ph="Aldeburgh beach huts"></div></div>
-  <div style="display:flex;flex-direction:column;gap:6px;">
-    <p class="eyebrow">Suffolk</p>
-    <h3>Aldeburgh &amp; the Suffolk coast</h3>
-    <p class="meta">2 hr 35 from London · 8 min read</p>
-  </div>
-</a></div>
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow" style="color:var(--clay);margin-bottom:10px;">This weekend's picks</p>
+        <h2 id="picks-heading">Where we'd go this weekend</h2>
+      </div>
+      <a class="link-more" href="/guides">All guides →</a>
+    </div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;">
+      <a class="card" href="/coming-soon" style="flex:5 1 480px;min-height:500px;">
+        <div class="img" data-ph="Bath — Royal Crescent or the abbey"></div>
+        <div class="card-shade"></div>
+        <div class="card-cap">
+          <p class="eyebrow">Somerset</p>
+          <h3 style="font-size:clamp(26px,3.4vw,38px);line-height:1.08;letter-spacing:-0.015em;">Bath in a weekend</h3>
+          <p>Somerset · 2 hr 20 from London · 9 min read</p>
+        </div>
+      </a>
+      <div style="flex:3 1 300px;display:flex;flex-direction:column;gap:24px;">
+        <a class="tile" href="/coming-soon" style="flex:1;">
+          <div class="thumb" style="height:170px;"><div class="img" data-ph="Peak District — a ridge, on foot"></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <p class="eyebrow">Derbyshire</p>
+            <h3>The Peak District, on foot</h3>
+            <p class="meta">Derbyshire · 3 hr 30 from London · 11 min read</p>
+          </div>
+        </a>
+        <a class="tile" href="/coming-soon" style="flex:1;">
+          <div class="thumb" style="height:170px;"><div class="img" data-ph="Wye Valley — river bend from above"></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <p class="eyebrow">Monmouthshire</p>
+            <h3>A slow weekend in the Wye Valley</h3>
+            <p class="meta">Monmouthshire · 2 hr 45 from London · 8 min read</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:24px;">
+      <a class="tile" href="/coming-soon" style="flex:1 1 320px;">
+        <div class="thumb" style="height:220px;"><div class="img" data-ph="Lake District — water and fells"></div></div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <p class="eyebrow">Cumbria</p>
+          <h3>Two days in the Lake District</h3>
+          <p class="meta">Cumbria · 4 hr 50 from London · 12 min read</p>
+        </div>
+      </a>
+      <a class="tile" href="/coming-soon" style="flex:1 1 320px;">
+        <div class="thumb" style="height:220px;"><div class="img" data-ph="Edinburgh — closes and rooftops"></div></div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <p class="eyebrow">Scotland</p>
+          <h3>Edinburgh beyond the Royal Mile</h3>
+          <p class="meta">Scotland · best by train · 10 min read</p>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
-<script>
-(function(){
-  var chips=document.getElementById('chips'), grid=document.getElementById('grid');
-  chips.addEventListener('click',function(e){
-    var b=e.target.closest('.chip'); if(!b) return;
-    Array.prototype.forEach.call(chips.querySelectorAll('.chip'),function(x){x.classList.remove('active');});
-    b.classList.add('active');
-    var mood=b.getAttribute('data-mood');
-    Array.prototype.forEach.call(grid.querySelectorAll('.g-card'),function(card){
-      var moods=card.getAttribute('data-moods').split('|');
-      card.style.display=(mood==='All'||moods.indexOf(mood)>-1)?'':'none';
-    });
-  });
-})();
-</script>
+
+<!-- ============ EXPERIENCES ============ -->
+<section class="dark">
+  <div class="wrap pad">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow" style="color:var(--amber);margin-bottom:10px;">Experiences</p>
+        <h2 style="font-family:Fraunces,serif;font-weight:560;font-size:clamp(28px,4vw,42px);letter-spacing:-0.015em;margin-bottom:12px;">Worth planning the weekend around</h2>
+        <p style="margin:0;color:var(--sage-light);font-size:15px;line-height:1.6;max-width:56ch;">The one thing to book before you set off. Tried first, and skipped from this page when they don't live up to it.</p>
+      </div>
+      <a class="link-more" href="/experiences">All experiences →</a>
+    </div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;">
+      <a class="tile" href="/coming-soon" style="flex:1 1 300px;">
+        <div class="thumb" style="height:210px;background:var(--forest-deep);"><div class="img" data-ph="Seals at Blakeney Point"></div></div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <p class="eyebrow">North Norfolk</p>
+          <h3>The seal boats from Morston Quay</h3>
+          <p class="meta">Half a morning · book the early sailing</p>
+        </div>
+      </a>
+      <a class="tile" href="/coming-soon" style="flex:1 1 300px;">
+        <div class="thumb" style="height:210px;background:var(--forest-deep);"><div class="img" data-ph="Canoe on the Wye, early light"></div></div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <p class="eyebrow">Monmouthshire</p>
+          <h3>Canoeing the Wye at dawn</h3>
+          <p class="meta">Full day · Symonds Yat to Monmouth</p>
+        </div>
+      </a>
+      <a class="tile" href="/coming-soon" style="flex:1 1 300px;">
+        <div class="thumb" style="height:210px;background:var(--forest-deep);"><div class="img" data-ph="Dartmoor night sky"></div></div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <p class="eyebrow">Devon</p>
+          <h3>A guided dark-sky night on Dartmoor</h3>
+          <p class="meta">One evening · new moon weekends</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BROWSE BY REGION / MOOD ============ -->
+<section class="darker">
+  <div class="wrap pad browse">
+    <div class="col">
+      <p class="eyebrow">Browse by region</p>
+      <h2>Where do you fancy?</h2>
+      <div class="region-list">
+        <a href="/coming-soon">South West <span aria-hidden="true">→</span></a>
+        <a href="/coming-soon">Wales &amp; the Borders <span aria-hidden="true">→</span></a>
+        <a href="/coming-soon">The North <span aria-hidden="true">→</span></a>
+        <a href="/coming-soon">East Anglia <span aria-hidden="true">→</span></a>
+        <a href="/coming-soon">Scotland <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="col">
+      <p class="eyebrow">Browse by mood</p>
+      <h2>What kind of weekend?</h2>
+      <div class="moods">
+        <a href="/coming-soon">Coast</a>
+        <a href="/coming-soon">Hills &amp; big walks</a>
+        <a href="/coming-soon">Food first</a>
+        <a href="/coming-soon">Slow &amp; quiet</a>
+        <a href="/coming-soon">City weekends</a>
+        <a href="/coming-soon">With the dog</a>
+      </div>
+      <p class="note">Every guide is written after we've been and stayed ourselves. If somewhere didn't earn the drive, we say so.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="light" style="border-bottom:1px solid rgba(28,36,29,0.12);">
+  <div class="brief">
+    <svg width="120" height="44" viewBox="0 0 120 44" fill="none" aria-hidden="true" style="margin-bottom:18px;">
+      <path d="M4 40 C 30 34, 40 22, 60 20 C 74 18.5, 82 17, 89 14" stroke="#C6642B" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="0.5 7" opacity="0.7"></path>
+      <path d="M98 2 C 101.3 2, 104 4.7, 104 8 C 104 12.5, 98 17.5, 98 17.5 C 98 17.5, 92 12.5, 92 8 C 92 4.7, 94.7 2, 98 2 Z" stroke="#C6642B" stroke-width="1.4" fill="none"></path>
+      <circle cx="98" cy="7.8" r="1.8" fill="#C6642B"></circle>
+    </svg>
+    <p class="eyebrow">The Weekend Brief</p>
+    <h2>One email, every Thursday</h2>
+    <p class="lede">Where to go this weekend, one place to stay that's worth it, and one that isn't. Read in three minutes.</p>
+
+    <!-- Beehiiv embed goes here once wired up. Placeholder form for now. -->
+    <div id="brief-form-wrap">
+      <div class="brief-form">
+        <input type="email" id="brief-email" placeholder="you@example.com" aria-label="Email address">
+        <button id="brief-signup">Sign up</button>
+      </div>
+      <p id="brief-error" role="alert" hidden style="margin:12px 0 0;color:var(--clay);font-size:13.5px;"></p>
+      <p class="fineprint">Free. No lists of ten. Unsubscribe whenever.</p>
+    </div>
+    <p class="done" id="brief-done" hidden>You're in. See you Thursday.</p>
+  </div>
+</section>
+
+<!-- ============ LATEST GUIDES ============ -->
+<section class="dark">
+  <div class="wrap" style="padding-top:clamp(56px,8vw,88px);padding-bottom:clamp(56px,8vw,88px);">
+    <div class="sec-head" style="margin-bottom:30px;">
+      <h2 style="font-family:Fraunces,serif;font-weight:560;font-size:clamp(24px,3.4vw,32px);letter-spacing:-0.01em;">Latest guides</h2>
+      <a class="link-more" href="/guides">All guides →</a>
+    </div>
+    <div class="rail">
+      <a class="tile" href="/coming-soon">
+        <div class="thumb" style="background:var(--forest-deep);"><div class="img" data-ph="Whitby harbour"></div></div>
+        <div><h3>Whitby, out of season</h3><p class="meta">North Yorkshire</p></div>
+      </a>
+      <a class="tile" href="/coming-soon">
+        <div class="thumb" style="background:var(--forest-deep);"><div class="img" data-ph="Cotswolds lane, early"></div></div>
+        <div><h3>The Cotswolds without the crowds</h3><p class="meta">Gloucestershire</p></div>
+      </a>
+      <a class="tile" href="/coming-soon">
+        <div class="thumb" style="background:var(--forest-deep);"><div class="img" data-ph="St Davids cliffs"></div></div>
+        <div><h3>St Davids and the far west</h3><p class="meta">Pembrokeshire</p></div>
+      </a>
+      <a class="tile" href="/coming-soon">
+        <div class="thumb" style="background:var(--forest-deep);"><div class="img" data-ph="Dartmoor tor at dusk"></div></div>
+        <div><h3>Dartmoor in two days</h3><p class="meta">Devon</p></div>
+      </a>
+      <a class="tile" href="/coming-soon">
+        <div class="thumb" style="background:var(--forest-deep);"><div class="img" data-ph="Aldeburgh beach huts"></div></div>
+        <div><h3>Aldeburgh &amp; the Suffolk coast</h3><p class="meta">Suffolk</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FOOTER ============ -->
 </Base>
 
 <script is:inline>
-(function(){
-  var chips=document.getElementById('chips'), grid=document.getElementById('grid');
-  chips.addEventListener('click',function(e){
-    var b=e.target.closest('.chip'); if(!b) return;
-    Array.prototype.forEach.call(chips.querySelectorAll('.chip'),function(x){x.classList.remove('active');});
+(function () {
+  // ---- Find trips near me ----
+  var guides = [
+    { title: 'The Cotswolds without the crowds', region: 'Gloucestershire', mins: 110, url: '/guides/cotswolds/' },
+    { title: 'Bath in a weekend', region: 'Somerset', mins: 140, url: '/guides/bath/' },
+    { title: 'The coast that earns the drive', region: 'North Norfolk', mins: 150, url: '/guides/north-norfolk/' },
+    { title: 'Aldeburgh & the Suffolk coast', region: 'Suffolk', mins: 155, url: '/guides/suffolk-coast/' },
+    { title: 'A slow weekend in the Wye Valley', region: 'Monmouthshire', mins: 165, url: '/guides/wye-valley/' },
+    { title: 'The Peak District, on foot', region: 'Derbyshire', mins: 210, url: '/guides/peak-district/' },
+    { title: 'Dartmoor in two days', region: 'Devon', mins: 220, url: '/guides/dartmoor/' },
+    { title: 'Whitby, out of season', region: 'North Yorkshire', mins: 270, url: '/guides/whitby/' },
+    { title: 'St Davids and the far west', region: 'Pembrokeshire', mins: 285, url: '/guides/st-davids/' },
+    { title: 'Two days in the Lake District', region: 'Cumbria', mins: 290, url: '/guides/lake-district/' }
+  ];
+  var rangeH = 3;
+  var rangeEl = document.getElementById('range');
+  rangeEl.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    rangeH = parseInt(b.getAttribute('data-h'), 10);
+    Array.prototype.forEach.call(rangeEl.querySelectorAll('button'), function (x) { x.classList.remove('active'); });
     b.classList.add('active');
-    var mood=b.getAttribute('data-mood');
-    Array.prototype.forEach.call(grid.querySelectorAll('.g-card'),function(card){
-      var moods=card.getAttribute('data-moods').split('|');
-      card.style.display=(mood==='All'||moods.indexOf(mood)>-1)?'':'none';
-    });
+  });
+  function fmt(mins) { var h = Math.floor(mins / 60), m = mins % 60; return m === 0 ? h + ' hr' : h + ' hr ' + String(m).padStart(2, '0'); }
+  function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  document.getElementById('search').addEventListener('click', function () {
+    var from = document.getElementById('from').value.trim() || 'central London';
+    var max = rangeH * 60;
+    var rows = guides.filter(function (g) { return g.mins <= max; }).sort(function (a, b) { return a.mins - b.mins; });
+    var box = document.getElementById('results');
+    var html = '';
+    if (rows.length === 0) {
+      html = '<p class="results-note">No guides within that range yet. Try a longer drive — the library is growing.</p>';
+    } else {
+      rows.forEach(function (g) {
+        html += '<a class="result" href="' + g.url + '"><span class="t">' + fmt(g.mins) + '</span>' +
+          '<span class="n">' + esc(g.title) + '</span><span class="r">' + esc(g.region) + '</span></a>';
+      });
+      html += '<p class="results-note">Off-peak drive-time estimates from ' + esc(from) + '. Check before you set off.</p>';
+    }
+    box.innerHTML = html;
+    box.hidden = false;
+  });
+
+  // ---- Newsletter (placeholder until Beehiiv embed is wired in) ----
+  var briefBtn = document.getElementById('brief-signup');
+  briefBtn.addEventListener('click', function () {
+    var input = document.getElementById('brief-email');
+    var email = input.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { input.focus(); return; }
+    var errEl = document.getElementById('brief-error');
+    if (errEl) errEl.hidden = true;
+    briefBtn.disabled = true; briefBtn.textContent = 'Signing you up…';
+    fetch('/api/subscribe', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    }).then(function (r) { return r.json().catch(function(){return {ok:false};}); })
+      .then(function (data) {
+        if (data && data.ok) {
+          document.getElementById('brief-form-wrap').hidden = true;
+          document.getElementById('brief-done').hidden = false;
+        } else {
+          briefBtn.disabled = false; briefBtn.textContent = 'Sign up';
+          if (errEl) { errEl.textContent = (data && data.error) || 'Could not sign you up just now. Please try again.'; errEl.hidden = false; }
+        }
+      }).catch(function () {
+        briefBtn.disabled = false; briefBtn.textContent = 'Sign up';
+        if (errEl) { errEl.textContent = 'Could not sign you up just now. Please try again.'; errEl.hidden = false; }
+      });
   });
 })();
 </script>
