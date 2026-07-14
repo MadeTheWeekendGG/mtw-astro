@@ -121,36 +121,18 @@ export default defineConfig({
             ],
           },
 
-          // ---- The body: the writing itself ----
+          // ---- The body: the whole guide, written as flowing Markdown ----
+          // One body field holding the full guide (## headings and all).
+          // This matches how guides are actually written and how the
+          // template renders them. Put [[STAY22MAP]] in the body where
+          // the stay map should appear.
           {
             type: "rich-text",
-            name: "whyGo",
-            label: "Why Go (first-hand, opinionated)",
-          },
-          {
-            type: "rich-text",
-            name: "whereToStay",
-            label: "Where to Stay",
-          },
-          {
-            type: "rich-text",
-            name: "whatToDo",
-            label: "What to Do",
-          },
-          {
-            type: "rich-text",
-            name: "whereToEat",
-            label: "Where to Eat",
-          },
-          {
-            type: "rich-text",
-            name: "itinerary",
-            label: "The 48-hour itinerary",
-          },
-          {
-            type: "rich-text",
-            name: "proTips",
-            label: "Pro Tips",
+            name: "body",
+            label: "The guide (write the whole thing here)",
+            description:
+              "Write the guide as normal, using headings for each section (Why go, Where to stay, etc.). Put [[STAY22MAP]] on its own line where the stay map should appear.",
+            isBody: true,
           },
 
           // ---- FAQ (feeds FAQ schema for AI-answer citations) ----
