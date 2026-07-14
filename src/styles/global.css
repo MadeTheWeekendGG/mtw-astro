@@ -21,7 +21,7 @@
   .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin: 0; }
   .serif { font-family: Fraunces, serif; }
 
-  /* image placeholder — holds a real photo when one is set via background-image */
+  /* image placeholder - holds a real photo when one is set via background-image */
   .img { position: absolute; inset: 0; background: #26332A; background-size: cover; background-position: center;
     display: flex; align-items: flex-end; }
   .img::after { content: attr(data-ph); position: absolute; left: 12px; bottom: 10px; right: 12px;
