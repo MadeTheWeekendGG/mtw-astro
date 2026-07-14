@@ -57,7 +57,7 @@
   .btn-clay:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 
   /* interior page header (Guides, Regions, Experiences, Near me, Brief) */
-  .page-head { background: var(--forest-deep); padding: clamp(48px, 8vw, 96px) 24px clamp(40px, 6vw, 64px); }
+  .page-head { background: var(--forest-deep); padding: clamp(24px, 4vw, 48px) 24px clamp(40px, 6vw, 64px); }
   .page-head .inner { max-width: 1200px; margin: 0 auto; }
   .page-motif { display: block; margin-bottom: 20px; opacity: 0.9; }
   .page-head .eyebrow { color: var(--amber); margin-bottom: 14px; }
