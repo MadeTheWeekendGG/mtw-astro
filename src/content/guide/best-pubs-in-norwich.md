@@ -14,7 +14,7 @@ categories:
   - "Food first"
   - "City weekends"
 dogFriendly: true
-published: false
+published: true
 quickFacts:
   bestBase: "The Maids Head Hotel, Tombland"
   bestBasePrice: "from around £110 a night"
