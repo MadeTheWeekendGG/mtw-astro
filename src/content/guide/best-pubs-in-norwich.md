@@ -14,7 +14,7 @@ categories:
   - "Food first"
   - "City weekends"
 dogFriendly: true
-published: true
+published: false
 quickFacts:
   bestBase: "The Maids Head Hotel, Tombland"
   bestBasePrice: "from around £110 a night"
@@ -37,10 +37,6 @@ faq:
 author: "George"
 authorNote: "Born and raised in Norwich, and has spent a good portion of the last decade working through its pub list."
 ---
-
-The Adam and Eve is the oldest pub in Norwich, and you notice it before you've got through the door. The ceilings come down to meet you, the seating is old church pews, and the tables sit close enough that you end up half in someone else's evening. It has been serving since at least 1249. You accept the elbows.
-
-That is the thing about drinking in this city. Norwich has a genuinely deep bench, and the good ones are old in a way that hasn't been sanded off and turned into a theme.
 
 ## The 365 pubs, and what's left of them
 
@@ -144,6 +140,20 @@ Outside is where it wins. Terraces on both the river and bridge sides, a large t
 
 One clarification worth having, because it confuses people. The saunas and cold plunges on the riverbank are run by **The Lions' Den**, a separate business working in partnership with the pub and Norfolk Paddle Boards. Wood-fired sauna looking out over the river, cold plunge after, and paddleboarding lessons and hire in the warmer months. You book with them directly rather than at the bar. The pub has a very small car park to the side (for pub customers only - sorry sauna and water lovers!), that is often full, but worth a look. There is no car access across the river, so you would have to come between the courts and cathedral side.
 
+## In the middle
+
+### The Garnet
+
+On the corner of Norwich market, and the least corporate-feeling pub in the city centre.
+
+![The Garnet on the corner of Norwich market at sunset, drinkers outside with City Hall clock tower behind](/images/norwich-pubs-garnet-market.jpg)
+
+There is a small shop attached selling local food, drink and gifts. Brick Pizza next door is excellent and you can eat it at a pub table, and you can do the same with anything you pick up from the market stalls, which is one of the great small pleasures of the city.
+
+Good range of cask beers plus lagers, stouts and spirits, though the selection is not the largest and the bar is small. There is often one person working it, so service slows at busy times. Be patient.
+
+The whole game here is getting an outside table and watching the market. The indoor seating is unremarkable. The good news is that people tend to stop for one or two and move on, so tables turn over more than you'd expect.
+
 ## The modern two
 
 Neither of these is a pub in the traditional sense. Both are worth your time.
@@ -167,18 +177,6 @@ Music all day, closer to a soul train than a pub playlist, and it stays on even 
 The cocktails are the point. The bar staff are genuinely expert, and between 4pm and 8pm every day it is two for £15 across the whole cocktail list. There is a solid range of lagers, wines and spirits too.
 
 The crowd runs from late twenties to fifties, so it is not a student room, and the interior has been thought about properly. Two honest drawbacks: there is no outdoor space at all, and it gets very busy on Friday evenings, Saturdays and some Sunday afternoons. I still love it. The atmosphere is as reliable as anywhere in Norwich.
-
-### The Garnet
-
-On the corner of Norwich market, and the least corporate-feeling pub in the city centre.
-
-![The Garnet on the corner of Norwich market at sunset, drinkers outside with City Hall clock tower behind](/images/norwich-pubs-garnet-market.jpg)
-
-There is a small shop attached selling local food, drink and gifts. Brick Pizza next door is excellent and you can eat it at a pub table, and you can do the same with anything you pick up from the market stalls, which is one of the great small pleasures of the city.
-
-Good range of cask beers plus lagers, stouts and spirits, though the selection is not the largest and the bar is small. There is often one person working it, so service slows at busy times. Be patient.
-
-The whole game here is getting an outside table and watching the market. The indoor seating is unremarkable. The good news is that people tend to stop for one or two and move on, so tables turn over more than you'd expect.
 
 ## The one I would skip
 
