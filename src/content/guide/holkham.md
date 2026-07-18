@@ -1,6 +1,6 @@
 ---
 title: A Perfect Weekend at Holkham, North Norfolk
-region: North Norfolk
+region: Norfolk
 standfirst: Free-roaming deer, a six-acre walled garden, and one of the widest beaches in England, all on one estate an hour from Norwich. Here's how to do a Holkham weekend properly, and the one thing everyone underestimates.
 metaDescription: A first-hand guide to a weekend at Holkham, North Norfolk - the deer, the walled garden, the long walk to the beach, where to eat, and where to stay for every budget.
 heroImage: "/images/holkham-hall-lake.jpg"
