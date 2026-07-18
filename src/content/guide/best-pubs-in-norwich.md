@@ -14,7 +14,7 @@ categories:
   - "Food first"
   - "City weekends"
 dogFriendly: true
-published: true
+published: false
 quickFacts:
   bestBase: "The Maids Head Hotel, Tombland"
   bestBasePrice: "from around £110 a night"
@@ -25,7 +25,7 @@ faq:
   - question: "How many pubs does Norwich actually have?"
     answer: "Nowhere near 365 anymore. The old saying was that Norwich had a church for every week of the year and a pub for every day of it, and while the churches largely survive, the pub count has fallen a long way, as it has everywhere. There are still well over a hundred though, which is a lot for a city this size, and the quality at the top end is genuinely high."
   - question: "Are Norwich pubs dog-friendly?"
-    answer: "Many of them, yes. The Black Horse on Earlham Road is the standout, dogs are welcome in the bar area, they hand out biscuits, and they do a free doggy roast on Sundays. The Red Lion at Bishopgate is also dog-friendly and has plenty of outdoor space by the river. As always, the modern bars are less reliable on this than the traditional pubs, so check ahead for Gonzo's and the Wildman."
+    answer: "Unusually so. Every pub in this guide welcomes dogs, including the two modern bars. The Black Horse on Earlham Road goes furthest, with biscuits in the bar and a free roast for the dog on Sundays. Two timing notes worth knowing: the Wildman takes dogs on leads during the day and on weeknight evenings but not on Friday or Saturday nights, and Gonzo's is easy in the daytime but less suited to a dog once the evening music starts."
   - question: "Can you walk between the best pubs in Norwich?"
     answer: "Yes, and that is the point of the city. Norwich is compact and almost everything worth drinking in sits inside a rough triangle you can cross on foot in twenty minutes. The crawl in this guide covers seven pubs and works comfortably on foot, though the stretch from the Leopard down to the cathedral is the longest leg."
   - question: "When is the Norwich City of Ale festival?"
@@ -46,7 +46,7 @@ That is the thing about drinking in this city. Norwich has a genuinely deep benc
 
 The old line was that Norwich had a church for every week of the year and a pub for every day of it. Fifty-two and three hundred and sixty-five. The churches are largely still standing, which is why the skyline looks the way it does. The pubs are another story, and the count has fallen a long way, as it has in every English city.
 
-But the reputation left something behind. Norwich still has a serious concentration of good pubs for a city of its size, a proper local brewing culture, and a beer festival that other cities have copied. I have been to around sixty of them over the years, which is nowhere near all of them, but it is enough to have opinions.
+But the reputation left something behind. Norwich still has a serious concentration of good pubs for a city of its size, a proper local brewing culture, and a beer festival that other cities have copied. I have been to around sixty of them over the years, which is nowhere near all of them, but it is enough to have a decent opinion.
 
 These are the eleven I would actually send you to.
 
@@ -72,11 +72,11 @@ A thing worth knowing before you go looking for it: the registered name over the
 
 The range is the best of any pub on this list: five or more lagers, three or four ciders, their own Murderers ale and Edith Cavell as the standing pair, plus four or five rotating. Food as well, and it is decent.
 
-It is the best sport pub in the city by a distance. Screens in every nook, including in the gents, which sounds like a joke until you're mid-pint during a penalty shootout and grateful for it. Big football, boxing and rugby nights fill it completely. Before Norwich City home games there is a particular atmosphere as people gather here and then walk down to the ground together.
+It is the best sport pub in the city by a distance. Screens in every nook, including in the gents, which sounds like a joke until you're mid-pint during a penalty shootout and grateful for it. Big football, boxing and rugby nights fill it completely. Before Norwich City home games there is a warm, joyful atmosphere as people gather here and then walk down to the ground together.
 
 The name is not a gimmick. There were real murders here, and the pub keeps the history on its walls alongside a lot of its original interior. The publican, Phil Cutter, co-founded the City of Ale festival, which tells you something about where this pub sits in the city's beer culture.
 
-The one limitation: outdoor seating is a small strip alongside the pub on the hill, so on a hot day you will be indoors.
+The one limitation: outdoor seating is a small strip alongside the pub on the hill, so on a hot day you will be indoors, but no fear - full air conditioning is provided throughout.
 
 ### The Ribs of Beef
 
@@ -84,7 +84,7 @@ A traditional single-bar pub on the river, and calmer than its central location 
 
 ![The Ribs of Beef beside Fye Bridge in Norwich, its riverside deck set out with tables above the Wensum](/images/norwich-pubs-ribs-of-beef.jpg)
 
-What I like about it is the board and card games. It is a pub built for sitting down for three hours, and the staff are friendly enough that you will want to.
+What I like about it is the board and card games. It is a pub built for sitting down for a few hours, and the staff are friendly enough that you will want to.
 
 Two honest notes on the outdoor seating. The riverside spot downstairs is genuinely lovely and there is very little of it, so it goes fast. The seating at road level sits on a busy stretch for both cars and pedestrians, and is a lot less pleasant than the photos suggest.
 
@@ -140,9 +140,9 @@ Closed for a while, reopened after a serious restoration, and now one of the bes
 
 It sits on the Wensum in the shadow of the cathedral. Inside there are real fires, a conservatory, and bar stools with a view of the water. The food is a step above standard pub cooking, and the beer, ale, wine and cider ranges are all strong.
 
-Outside is where it wins. Terraces on both the river and bridge sides, a large teepee with outdoor fires, and free marshmallows to roast. There are kingfishers on that stretch if you're patient.
+Outside is where it wins. Terraces on both the river and bridge sides, a large teepee with outdoor fires, and free marshmallows to roast. There are kingfishers to spot on that stretch of the river, if you're patient.
 
-One clarification worth having, because it confuses people. The saunas and cold plunges on the riverbank are run by **The Lions' Den**, a separate business working in partnership with the pub and Norfolk Paddle Boards. Wood-fired sauna looking out over the river, cold plunge after, and paddleboarding lessons and hire in the warmer months. You book with them directly rather than at the bar. There is no parking on site, so use the pay-and-display car parks nearby.
+One clarification worth having, because it confuses people. The saunas and cold plunges on the riverbank are run by **The Lions' Den**, a separate business working in partnership with the pub and Norfolk Paddle Boards. Wood-fired sauna looking out over the river, cold plunge after, and paddleboarding lessons and hire in the warmer months. You book with them directly rather than at the bar. The pub has a very small car park to the side (for pub customers only - sorry sauna and water lovers!), that is often full, but worth a look. There is no car access across the river, so you would have to come between the courts and cathedral side.
 
 ## The modern two
 
@@ -150,13 +150,13 @@ Neither of these is a pub in the traditional sense. Both are worth your time.
 
 ### Gonzo's
 
-The rooftop is the reason to come, and from spring through autumn it is one of the best places to drink in the city. Plenty of seating, two large fire pits with stools around them, heaters above the tables, and its own outside bar with a good beer and cocktail range including things you won't recognise.
+The rooftop is the reason to come, and from spring through autumn it is one of the best places to drink in the city. Plenty of seating, two large fire pits with stools around them, heaters above the tables, and its own outside bar with a good beer and cocktail range including things you won't recognise, but are excited to try.
 
 ![The rooftop bar at Gonzo's in Norwich, festoon lights strung above stools and oil-drum tables, with a fire pit to one side](/images/norwich-pubs-gonzos-rooftop.jpg)
 
 Downstairs is a separate proposition: an indoor bar with video games on small screens above it, which turns into a proper late spot. I used to come here on weeknights, Tuesdays through Thursdays, and there was always a good atmosphere built mostly from hospitality and retail workers who don't get a normal weekend. If you want the vibe without the crush, that is when to go.
 
-There is a meat restaurant on the middle floor. I haven't eaten there, so I won't pretend to have an opinion, but it is always busy and the reports are good.
+There is a meat restaurant on the middle floor called Brix & Bones. I haven't eaten there, so I won't pretend to have an opinion, but it is always busy and the reports are very good.
 
 ### The Wildman
 
@@ -170,7 +170,7 @@ The crowd runs from late twenties to fifties, so it is not a student room, and t
 
 ### The Garnet
 
-On the corner of Norwich market, and the least corporate-feeling pub in the city centre by some way.
+On the corner of Norwich market, and the least corporate-feeling pub in the city centre.
 
 ![The Garnet on the corner of Norwich market at sunset, drinkers outside with City Hall clock tower behind](/images/norwich-pubs-garnet-market.jpg)
 
@@ -184,9 +184,9 @@ The whole game here is getting an outside table and watching the market. The ind
 
 **The Compleat Angler.** It sits right by the bridge opposite the train station, which is the only real argument for it.
 
-It has the feel of any Greene King pub anywhere, with nothing particular of its own. Cleanliness has been hit and miss on my visits. The food is fine and the drinks are fine, and fine is all either of them are. The riverside outdoor area is genuinely nice, but there is not much of it and the location means a constant stream of passing traffic on foot and by car.
+It has the feel of a standard blueprint Greene King pub, with nothing particular of its own. Cleanliness has been hit and miss on my visits. The food is fine and the drinks are fine, and fine is all either of them are. The riverside outdoor area is genuinely nice, but there is not much of it and the location means a constant stream of passing traffic on foot and by car.
 
-The reason to skip it is not that it is terrible, it is that you are ninety seconds from much better. **The Red Lion at Bishopgate** is one of the best pubs in the city. **Lollards Pit** is the other direction and a proper pub: low ceilings, an old building, a quiz machine, a small bar staffed by lovely people, a nice courtyard out the back, and a room where everyone is friendly. It has a slightly stuck-in-2003 quality that I mean entirely as a compliment.
+The reason to skip it is not that it is terrible, it is that you are ninety seconds from much better. **The Red Lion at Bishopgate** is one of the best pubs in the city. **Lollards Pit** sits just over the river and is a proper pub: low ceilings, an old building, a quiz machine that makes you feel like you are back in the early noughties, a small bar staffed by lovely people, a nice courtyard out the back, and a room where everyone is friendly.
 
 Walk the extra minute.
 
@@ -200,7 +200,7 @@ Seven pubs, north to south and then into the centre, finishing where the night c
 4. **The Red Lion, Bishopgate** - out by the river. If it is summer, this is where you lose an hour.
 5. **Gonzo's** - into the centre, and up to the rooftop if the weather holds.
 6. **The Wildman** - cocktails, and time it for the 4pm to 8pm deal if you can.
-7. **The Murderers** - finish here.
+7. **The Murderers** - finish here, with a great array of choices and a nice evening atmosphere.
 
 Do it in daylight in summer and you get the Red Lion's terrace and Gonzo's roof at their best. Do it in winter and lean on the Adam and Eve and the Murderers instead, which are both better in the cold.
 
@@ -220,7 +220,7 @@ Norwich is small enough that staying central solves everything. Every pub on thi
 
 ![The Maids Head Hotel on Tombland in Norwich, its mock Tudor frontage and red brick facade seen from the square](/images/norwich-pubs-maids-head-hotel.jpg)
 
-None of which would matter if it were a bad hotel. It isn't. I stayed after a work event when I was living further out and it was excellent. The oldest parts above ground are 15th century, the bar and snug were added in the late 1500s, and the whole thing has been carefully looked after by its current owners rather than modernised into anonymity. The bar itself is a good showcase of local beer, so you can start the evening without leaving the building.
+None of which would matter if it were a bad hotel. It isn't. I've stayed a few times when living further out of the city and it was excellent. The oldest parts above ground are 15th century, the bar and snug were added in the late 1500s, and the whole thing has been carefully looked after by its current owners rather than modernised into anonymity. The bar itself is a good showcase of local beer, so you can start the evening without leaving the building.
 
 It also sits about two minutes from the Adam and Eve and a few more from the river, which puts you in the right corner of the city for everything above. You can [check availability at the Maids Head here](https://booking.stay22.com/madetheweekend/P7xSNdwCGW).
 
@@ -236,7 +236,7 @@ If you want to compare it against everything else in the centre, the map below c
 - **Sunday is roast day and roasts get booked.** Temple Bar and the Black Horse both need a reservation on a Sunday, particularly the Black Horse.
 - **Check the fixture list.** A Norwich City home game changes the character of the whole city centre. The Murderers before kick-off is a genuinely good experience if you want it, and a very busy pub if you don't.
 - **The Wildman's cocktail deal runs 4pm to 8pm daily.** Two for £15 across the list, which makes an early evening start worth planning.
-- **Take a dog to the Black Horse on a Sunday.** They do a free roast for the dog. It is a small thing that tells you how the place is run.
+- **You can bring the dog to all eleven of these.** Norwich is good like that. The Black Horse even does a free roast for the dog on Sundays. Two exceptions to plan around: the Wildman does not take dogs on Friday or Saturday evenings, and Gonzo's suits a dog far better in the afternoon than once the music starts.
 
 ---
 
