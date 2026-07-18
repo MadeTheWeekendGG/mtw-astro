@@ -30,7 +30,7 @@ function driveLabel(mins) {
 >
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="img has-photo" id="hero-img" style="background-image:url('/images/holkham-hall-lake.jpg');background-size:cover;background-position:center;" data-ph="Holkham hall and lake"></div>
+  <div class={`img ${featured?.data.heroImage ? 'has-photo' : ''}`} id="hero-img" style={featured?.data.heroImage ? `background-image:url('${featured.data.heroImage}');background-size:cover;background-position:center;` : ''} data-ph={featured?.data.heroAlt || 'Made the Weekend'}></div>
   <div class="hero-shade"></div>
   <svg class="hero-motif" width="220" height="120" viewBox="0 0 220 120" fill="none" aria-hidden="true">
     <path d="M6 112 C 50 100, 60 66, 104 58 C 140 51, 156 44, 166 34" stroke="#E0A45C" stroke-width="2" stroke-linecap="round" stroke-dasharray="0.5 9"></path>
