@@ -4,7 +4,8 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isActive = (p: string) => path === p;
 
 // Fixed category list for the Guides dropdown
-const categories = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Family friendly', 'Dog-friendly'];
+const placeCategories = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends'];
+const whoCategories = ['Family friendly', 'Dog-friendly'];
 function catSlug(c: string) { return c.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
 
 // Regions derived from real published guides
@@ -24,18 +25,28 @@ function regionSlug(name: string) { return name.toLowerCase().replace(/[^a-z0-9]
     </a>
     <nav class="top">
       <div class="nav-item">
-        <a href="/guides" aria-current={isActive('/guides') ? 'page' : undefined}>Guides</a>
+        <a class="has-drop" href="/guides" aria-current={isActive('/guides') ? 'page' : undefined}>
+          Guides
+          <svg class="chev" width="9" height="6" viewBox="0 0 9 6" fill="none" aria-hidden="true"><path d="M1 1.25 L4.5 4.75 L8 1.25" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
         <div class="nav-drop">
-          <a href="/guides">All guides</a>
-          {categories.map((c) => (
+          <a class="drop-parent" href="/guides">All guides</a>
+          {placeCategories.map((c) => (
+            <a href={`/guides/category/${catSlug(c)}`}>{c}</a>
+          ))}
+          <p class="drop-label">Who's coming</p>
+          {whoCategories.map((c) => (
             <a href={`/guides/category/${catSlug(c)}`}>{c}</a>
           ))}
         </div>
       </div>
       <div class="nav-item">
-        <a href="/regions" aria-current={isActive('/regions') ? 'page' : undefined}>Regions</a>
+        <a class="has-drop" href="/regions" aria-current={isActive('/regions') ? 'page' : undefined}>
+          Regions
+          <svg class="chev" width="9" height="6" viewBox="0 0 9 6" fill="none" aria-hidden="true"><path d="M1 1.25 L4.5 4.75 L8 1.25" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
         <div class="nav-drop">
-          <a href="/regions">All regions</a>
+          <a class="drop-parent" href="/regions">All regions</a>
           {regions.map((r) => (
             <a href={`/regions/${regionSlug(r)}`}>{r}</a>
           ))}
@@ -50,6 +61,17 @@ function regionSlug(name: string) { return name.toLowerCase().replace(/[^a-z0-9]
 
 <style>
   .nav-item { position: relative; display: inline-block; }
+
+  /* Top-level items: make it obvious they are interactive */
+  .top > a,
+  .nav-item > a { transition: color 0.15s ease; }
+  .top > a:not(.pill):hover,
+  .nav-item > a:hover { color: var(--amber); }
+
+  .has-drop { display: inline-flex; align-items: center; gap: 5px; }
+  .chev { opacity: 0.55; transition: transform 0.18s ease, opacity 0.15s ease; }
+  .nav-item:hover .chev,
+  .nav-item:focus-within .chev { transform: rotate(180deg); opacity: 1; }
   .nav-drop {
     position: absolute; top: 100%; left: 0; min-width: 200px;
     background: var(--forest-deep); border: 1px solid rgba(224,164,92,0.25);
@@ -66,6 +88,22 @@ function regionSlug(name: string) { return name.toLowerCase().replace(/[^a-z0-9]
     color: rgba(244,237,222,0.85); white-space: nowrap;
   }
   .nav-drop a:hover { background: rgba(224,164,92,0.14); color: var(--amber); }
+
+  /* "All guides" / "All regions" read as the parent, not the first category */
+  .drop-parent {
+    font-weight: 600; color: var(--cream);
+    margin-bottom: 6px; padding-bottom: 11px;
+    border-bottom: 1px solid rgba(224,164,92,0.18);
+    border-radius: 5px 5px 0 0;
+  }
+
+  /* Small grouping label above the "who's coming" categories */
+  .drop-label {
+    margin: 10px 0 3px; padding: 0 12px;
+    font-size: 10.5px; font-weight: 600;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    color: rgba(244,237,222,0.42);
+  }
   @media (max-width: 760px) {
     /* On small screens dropdowns would be awkward; show the top-level links only */
     .nav-drop { display: none; }
