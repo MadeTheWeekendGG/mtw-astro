@@ -2,11 +2,11 @@
 import Base from '../../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
-const CATEGORIES = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Dog-friendly'];
+const CATEGORIES = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Family friendly', 'Dog-friendly'];
 function catSlug(c) { return c.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
 
 export async function getStaticPaths() {
-  const cats = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Dog-friendly'];
+  const cats = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Family friendly', 'Dog-friendly'];
   const slug = (c) => c.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   const published = (await getCollection('guide')).filter((g) => g.data.published);
   return cats.map((cat) => {
