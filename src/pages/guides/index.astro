@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
-const CATEGORIES = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Dog-friendly'];
+const CATEGORIES = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Family friendly', 'Dog-friendly'];
 function catSlug(c) { return c.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
 
 const guides = (await getCollection('guide'))
