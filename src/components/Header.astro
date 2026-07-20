@@ -4,7 +4,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isActive = (p: string) => path === p;
 
 // Fixed category list for the Guides dropdown
-const categories = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Dog-friendly'];
+const categories = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Family friendly', 'Dog-friendly'];
 function catSlug(c: string) { return c.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
 
 // Regions derived from real published guides
