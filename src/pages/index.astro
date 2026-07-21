@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import BriefSignup from '../components/BriefSignup.astro';
 
 const published = (await getCollection('guide'))
   .filter((g) => g.data.published)
@@ -161,26 +162,7 @@ function driveLabel(mins) {
 
 <!-- ============ NEWSLETTER ============ -->
 <section class="light" style="border-bottom:1px solid rgba(28,36,29,0.12);">
-  <div class="brief">
-    <svg width="120" height="44" viewBox="0 0 120 44" fill="none" aria-hidden="true" style="margin-bottom:18px;">
-      <path d="M4 40 C 30 34, 40 22, 60 20 C 74 18.5, 82 17, 89 14" stroke="#C6642B" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="0.5 7" opacity="0.7"></path>
-      <path d="M98 2 C 101.3 2, 104 4.7, 104 8 C 104 12.5, 98 17.5, 98 17.5 C 98 17.5, 92 12.5, 92 8 C 92 4.7, 94.7 2, 98 2 Z" stroke="#C6642B" stroke-width="1.4" fill="none"></path>
-      <circle cx="98" cy="7.8" r="1.8" fill="#C6642B"></circle>
-    </svg>
-    <p class="eyebrow">The Weekend Brief</p>
-    <h2>One email, every Thursday</h2>
-    <p class="lede">Where I'd point you this weekend, and where to stay when you get there. Read in three minutes.</p>
-
-    <div id="brief-form-wrap">
-      <div class="brief-form">
-        <input type="email" id="brief-email" placeholder="you@example.com" aria-label="Email address">
-        <button id="brief-signup">Sign up</button>
-      </div>
-      <p id="brief-error" role="alert" hidden style="margin:12px 0 0;color:var(--clay);font-size:13.5px;"></p>
-      <p class="fineprint">Free. No lists of ten. Unsubscribe whenever.</p>
-    </div>
-    <p class="done" id="brief-done" hidden>You're in. See you Thursday.</p>
-  </div>
+  <BriefSignup variant="section" />
 </section>
 
 </Base>
@@ -233,31 +215,5 @@ function driveLabel(mins) {
       .catch(function () { setStatus('Something went wrong looking that up. Please try again.'); });
   });
 
-  // ---- Newsletter ----
-  var briefBtn = document.getElementById('brief-signup');
-  briefBtn.addEventListener('click', function () {
-    var input = document.getElementById('brief-email');
-    var email = input.value.trim();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { input.focus(); return; }
-    var errEl = document.getElementById('brief-error');
-    if (errEl) errEl.hidden = true;
-    briefBtn.disabled = true; briefBtn.textContent = 'Signing you up...';
-    fetch('/api/subscribe', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email })
-    }).then(function (r) { return r.json().catch(function(){return {ok:false};}); })
-      .then(function (data) {
-        if (data && data.ok) {
-          document.getElementById('brief-form-wrap').hidden = true;
-          document.getElementById('brief-done').hidden = false;
-        } else {
-          briefBtn.disabled = false; briefBtn.textContent = 'Sign up';
-          if (errEl) { errEl.textContent = (data && data.error) || 'Could not sign you up just now. Please try again.'; errEl.hidden = false; }
-        }
-      }).catch(function () {
-        briefBtn.disabled = false; briefBtn.textContent = 'Sign up';
-        if (errEl) { errEl.textContent = 'Could not sign you up just now. Please try again.'; errEl.hidden = false; }
-      });
-  });
 })();
 </script>
