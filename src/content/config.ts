@@ -17,6 +17,7 @@ const guide = defineCollection({
     categories: z.array(z.string()).optional(),
     dogFriendly: z.boolean().optional(),
     published: z.boolean().default(false),
+    featured: z.boolean().default(false),
     quickFacts: z.object({
       bestBase: z.string().optional(),
       bestBasePrice: z.string().optional(),
