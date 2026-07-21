@@ -13,6 +13,7 @@ lng: 1.2974
 categories: ["City weekends", "Coast", "Family friendly"]
 dogFriendly: true
 published: true
+featured: true
 quickFacts:
   bestBase: "Knights Court Hotel, Great Yarmouth seafront"
   bestBasePrice: "from around £70 a night"
