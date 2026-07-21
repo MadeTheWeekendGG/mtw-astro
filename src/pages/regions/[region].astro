@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import BriefSignup from '../../components/BriefSignup.astro';
 
 export async function getStaticPaths() {
   const published = (await getCollection('guide')).filter((g) => g.data.published);
@@ -56,5 +57,12 @@ function driveLabel(mins) {
       ))}
     </div>
   </div>
+</section>
+<section class="light" style="border-top:1px solid rgba(28,36,29,0.12);padding-bottom:clamp(24px,4vw,40px);">
+  <BriefSignup
+    variant="compact"
+    heading="Know when the next one lands"
+    lede="One email each Thursday: where to go this weekend, and where to stay when you get there."
+  />
 </section>
 </Base>
