@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Stay22Map from '../../components/Stay22Map.astro';
+import BriefSignup from '../../components/BriefSignup.astro';
 import { createMarkdownProcessor } from '@astrojs/markdown-remark';
 
 export async function getStaticPaths() {
@@ -97,6 +98,14 @@ const articleSchema = {
         Some links on this page earn us a small commission if you book through them, at no extra cost to you. It never changes what we recommend.
       </p>
 
+      <div class="guide-brief">
+        <BriefSignup
+          variant="compact"
+          heading="Like this? One email, every Thursday."
+          lede="Where I'd point you this weekend, and where to stay when you get there. Read in three minutes."
+        />
+      </div>
+
       {d.faq && d.faq.length > 0 && (
         <div style="margin-top:44px;">
           <h2 class="serif" style="font-size:clamp(24px,3.4vw,32px);color:var(--forest-deep);margin-bottom:20px;">Good to know before you go</h2>
@@ -122,29 +131,14 @@ const articleSchema = {
     </div>
   </section>
 
-  <section class="light" style="border-top:1px solid rgba(28,36,29,0.12);border-bottom:1px solid rgba(28,36,29,0.12);">
-    <div class="brief">
-      <p class="eyebrow">The Weekend Brief</p>
-      <h2>One email, every Thursday</h2>
-      <p class="lede">Where to go this weekend, one place to stay that's worth it, and one that isn't. Read in three minutes.</p>
-      <div id="brief-form-wrap">
-        <div class="brief-form">
-          <input type="email" id="brief-email" placeholder="you@example.com" aria-label="Email address" />
-          <button id="brief-signup">Sign up</button>
-        </div>
-        <p id="brief-error" role="alert" hidden style="margin:12px 0 0;color:var(--clay);font-size:13.5px;"></p>
-        <p class="fineprint">Free. No lists of ten. Unsubscribe whenever.</p>
-      </div>
-      <p class="done" id="brief-done" hidden>You're in. See you Thursday.</p>
-    </div>
-  </section>
-
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
 </Base>
 
 <style>
+  /* the mid-guide signup, framed as a deliberate pause rather than a footer */
+  .guide-brief { margin: 48px 0 8px; border-top: 1px solid rgba(28,36,29,0.14); border-bottom: 1px solid rgba(28,36,29,0.14); }
   .guide-body :global(h2) { font-family: Fraunces, serif; font-weight: 600; font-size: clamp(24px,3.4vw,32px); color: var(--forest-deep); margin: 40px 0 16px; letter-spacing: -0.01em; }
   .guide-body :global(h3) { font-family: Fraunces, serif; font-weight: 600; font-size: 21px; color: var(--forest-deep); margin: 28px 0 10px; }
   .guide-body :global(p) { color: var(--ink-soft); font-size: 17px; line-height: 1.7; margin: 0 0 18px; }
@@ -170,33 +164,4 @@ const articleSchema = {
   .faq-answer p { margin: 0; color: var(--ink-soft); font-size: 15.5px; line-height: 1.65; }
 </style>
 
-<script is:inline>
-(function () {
-  var briefBtn = document.getElementById('brief-signup');
-  if (!briefBtn) return;
-  briefBtn.addEventListener('click', function () {
-    var input = document.getElementById('brief-email');
-    var email = input.value.trim();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { input.focus(); return; }
-    var errEl = document.getElementById('brief-error');
-    if (errEl) errEl.hidden = true;
-    briefBtn.disabled = true; briefBtn.textContent = 'Signing you up…';
-    fetch('/api/subscribe', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email })
-    }).then(function (r) { return r.json().catch(function(){return {ok:false};}); })
-      .then(function (data) {
-        if (data && data.ok) {
-          document.getElementById('brief-form-wrap').hidden = true;
-          document.getElementById('brief-done').hidden = false;
-        } else {
-          briefBtn.disabled = false; briefBtn.textContent = 'Sign up';
-          if (errEl) { errEl.textContent = (data && data.error) || 'Could not sign you up just now. Please try again.'; errEl.hidden = false; }
-        }
-      }).catch(function () {
-        briefBtn.disabled = false; briefBtn.textContent = 'Sign up';
-        if (errEl) { errEl.textContent = 'Could not sign you up just now. Please try again.'; errEl.hidden = false; }
-      });
-  });
-})();
-</script>
+
