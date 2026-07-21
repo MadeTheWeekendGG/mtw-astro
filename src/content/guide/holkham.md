@@ -96,6 +96,8 @@ Holkham is more picnic-and-café than fine-dining-on-the-day, and that suits it.
 
 For a proper meal, two options I'd send you to without hesitation. **French's in Wells-next-the-Sea** for fish and chips: a short drive over, genuinely excellent, award-winning and locally loved, and hard to beat by the harbour after a day on the sand. And **the Victoria's restaurant** on the estate, which sources local ingredients and changes its menu constantly, is the grown-up dinner option if you're staying over.
 
+If you're heading back through Norwich afterwards, the city has well over a hundred pubs and we've written up [the ones worth your time](/guides/best-pubs-in-norwich).
+
 ## A perfect day, in order
 
 If you've got one day and want to do Holkham right: arrive for opening, pay the £6.50 to park, and start with a slow wander to find the deer while the grass is still quiet. Walk to the walled garden (15-20 minutes through the parkland) and give it a proper hour, with coffee at the concession outside. Picnic or café lunch by the lake. Set off for the beach early-to-mid afternoon, allowing the best part of an hour on foot, with a pause at the Lookout. Spend the late afternoon on the sand, walking out far enough that the world goes quiet. Then head to Wells for fish and chips at French's, or back to the Victoria for dinner if you're staying over.
@@ -107,3 +109,7 @@ If you've got one day and want to do Holkham right: arrive for opening, pay the 
 - **Go car-free for a discount.** Arrive by bus, bike or on foot and you get 10% off entry to the hall, walled garden and Holkham Stories.
 - **Come back in a different season.** The walled garden in April and the same garden in July are two different pleasures, and the estate rewards repeat visits more than almost anywhere we know.
 - **Dress for the wind, not the forecast.** The beach is an hour's round walk with nothing between you and the North Sea, and it's often ten degrees breezier out on the sand than it felt in the car park. A packable windproof layer is the difference between a lovely afternoon and cutting it short. If you don't own one, [something like this](https://www.amazon.co.uk/dp/B0D972TDH4?tag=madetheweeken-21) lives in the boot and earns its place on any Norfolk beach day.
+
+## Nearby
+
+Holkham is the north coast. If you've got a full weekend and want the other side of the county, [a weekend in Norwich and Great Yarmouth](/guides/norwich-great-yarmouth-weekend) is a city day and a coast day, and about as different from this as Norfolk gets. Our full [Norfolk guides are here](/regions/norfolk).
