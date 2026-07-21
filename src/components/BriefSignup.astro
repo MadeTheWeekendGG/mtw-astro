@@ -1,0 +1,149 @@
+---
+// The Weekend Brief signup. One component, used everywhere.
+//
+// variant: "section"  full bordered block for the homepage and guide pages (light background)
+//          "compact"  slimmer inline block, still light
+//          "footer"   dark variant that sits inside the site footer
+//
+// Every instance generates its own unique ids, so several can appear on one
+// page without the scripts fighting over the same element.
+
+export interface Props {
+  variant?: 'section' | 'compact' | 'footer';
+  heading?: string;
+  lede?: string;
+}
+
+const {
+  variant = 'section',
+  heading = 'One email, every Thursday',
+  lede = "Where I'd point you this weekend, and where to stay when you get there. Read in three minutes.",
+} = Astro.props;
+
+const uid = 'bs' + Math.random().toString(36).slice(2, 9);
+---
+
+<div class={`bsignup bsignup-${variant}`} data-bsignup={uid}>
+  {variant !== 'footer' && (
+    <svg width="120" height="44" viewBox="0 0 120 44" fill="none" aria-hidden="true" class="bsignup-motif">
+      <path d="M4 40 C 30 34, 40 22, 60 20 C 74 18.5, 82 17, 89 14" stroke="#C6642B" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="0.5 7" opacity="0.7"></path>
+      <path d="M98 2 C 101.3 2, 104 4.7, 104 8 C 104 12.5, 98 17.5, 98 17.5 C 98 17.5, 92 12.5, 92 8 C 92 4.7, 94.7 2, 98 2 Z" stroke="#C6642B" stroke-width="1.4" fill="none"></path>
+      <circle cx="98" cy="7.8" r="1.8" fill="#C6642B"></circle>
+    </svg>
+  )}
+
+  <p class="bsignup-eyebrow">The Weekend Brief</p>
+  {variant === 'footer'
+    ? <p class="bsignup-h-small">{heading}</p>
+    : <h2 class="bsignup-h">{heading}</h2>}
+  <p class="bsignup-lede">{lede}</p>
+
+  <div class="bsignup-wrap" data-role="wrap">
+    <div class="bsignup-form">
+      <input type="email" data-role="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" />
+      <button type="button" data-role="submit">Sign up</button>
+    </div>
+    <p data-role="error" role="alert" hidden class="bsignup-err"></p>
+    <p class="bsignup-fine">Free. No lists of ten. Unsubscribe whenever.</p>
+  </div>
+
+  <p class="bsignup-done" data-role="done" hidden>You're in. See you Thursday.</p>
+</div>
+
+<style>
+  .bsignup-motif { display: block; margin: 0 auto 18px; }
+
+  .bsignup-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 10px; color: var(--clay); }
+  .bsignup-h { font-family: Fraunces, serif; font-weight: 600; font-size: clamp(28px, 4vw, 42px); letter-spacing: -0.015em; color: var(--forest-deep); text-wrap: balance; margin: 0 0 14px; }
+  .bsignup-h-small { font-family: Fraunces, serif; font-weight: 600; font-size: 19px; color: var(--cream); margin: 0 0 10px; }
+  .bsignup-lede { margin: 0 auto 30px; color: var(--ink-soft); font-size: 16px; line-height: 1.6; max-width: 48ch; }
+
+  .bsignup-form { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; max-width: 520px; margin: 0 auto; }
+  .bsignup-form input { flex: 1 1 260px; min-width: 0; background: var(--cream-bright); border: 1px solid rgba(28,36,29,0.25); border-radius: 4px; color: var(--forest-deep); font-family: Inter, sans-serif; font-size: 15px; padding: 14px 16px; outline: none; }
+  .bsignup-form input::placeholder { color: rgba(28,36,29,0.4); }
+  .bsignup-form input:focus { border-color: var(--clay); }
+  .bsignup-form button { flex: 0 1 auto; background: var(--clay); border: none; border-radius: 4px; color: var(--cream); font-family: Inter, sans-serif; font-size: 15px; font-weight: 600; padding: 14px 28px; cursor: pointer; transition: background 0.18s ease; }
+  .bsignup-form button:hover { background: var(--forest-deep); }
+  .bsignup-form button:focus-visible { outline: 2px solid var(--forest-deep); outline-offset: 2px; }
+  .bsignup-form button:disabled { opacity: 0.75; cursor: default; }
+
+  .bsignup-err { margin: 12px 0 0; color: var(--clay); font-size: 13.5px; }
+  .bsignup-fine { margin: 16px 0 0; color: var(--sage); font-size: 13px; }
+  .bsignup-done { margin: 0; font-family: Fraunces, serif; font-style: italic; font-size: 20px; color: var(--clay); }
+
+  /* full section block */
+  .bsignup-section { max-width: 760px; margin: 0 auto; padding: clamp(64px, 9vw, 100px) 24px; text-align: center; }
+
+  /* slimmer inline block, for listing pages and mid-guide */
+  .bsignup-compact { max-width: 720px; margin: 0 auto; padding: clamp(40px, 6vw, 56px) 24px; text-align: center; }
+  .bsignup-compact .bsignup-motif { margin-bottom: 14px; }
+  .bsignup-compact .bsignup-h { font-size: clamp(24px, 3.2vw, 32px); }
+  .bsignup-compact .bsignup-lede { margin-bottom: 24px; font-size: 15.5px; }
+
+  /* dark variant, sits in the footer */
+  .bsignup-footer { text-align: left; max-width: 380px; }
+  .bsignup-footer .bsignup-eyebrow { color: var(--amber); font-size: 12px; letter-spacing: 0.16em; }
+  .bsignup-footer .bsignup-lede { margin: 0 0 16px; color: var(--sage-light); font-size: 14px; line-height: 1.6; max-width: none; }
+  .bsignup-footer .bsignup-form { justify-content: flex-start; max-width: none; margin: 0; gap: 8px; }
+  .bsignup-footer .bsignup-form input { flex: 1 1 180px; background: rgba(244,237,222,0.06); border-color: rgba(244,237,222,0.25); color: var(--cream); font-size: 14px; padding: 12px 14px; }
+  .bsignup-footer .bsignup-form input::placeholder { color: rgba(244,237,222,0.45); }
+  .bsignup-footer .bsignup-form input:focus { border-color: var(--amber); }
+  .bsignup-footer .bsignup-form button { font-size: 14px; padding: 12px 20px; }
+  .bsignup-footer .bsignup-form button:hover { background: var(--amber); color: var(--forest-deep); }
+  .bsignup-footer .bsignup-fine { margin: 12px 0 0; color: var(--sage); font-size: 12.5px; }
+  .bsignup-footer .bsignup-err { color: var(--amber); }
+  .bsignup-footer .bsignup-done { font-size: 17px; color: var(--amber); }
+
+  @media (max-width: 520px) {
+    .bsignup-form button { width: 100%; }
+  }
+</style>
+
+<script>
+  // Runs once per page. Wires up every signup block present, each with its own state.
+  document.querySelectorAll('[data-bsignup]').forEach(function (root) {
+    var btn = root.querySelector('[data-role="submit"]');
+    var input = root.querySelector('[data-role="email"]');
+    var wrap = root.querySelector('[data-role="wrap"]');
+    var done = root.querySelector('[data-role="done"]');
+    var err = root.querySelector('[data-role="error"]');
+    if (!btn || !input || !wrap || !done) return;
+
+    function fail(message) {
+      btn.disabled = false;
+      btn.textContent = 'Sign up';
+      if (err) { err.textContent = message; err.hidden = false; }
+    }
+
+    function submit() {
+      var email = input.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { input.focus(); return; }
+      if (err) err.hidden = true;
+      btn.disabled = true;
+      btn.textContent = 'Signing you up...';
+
+      fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email }),
+      })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (data) {
+          if (data && data.ok) {
+            wrap.hidden = true;
+            done.hidden = false;
+          } else {
+            fail((data && data.error) || 'Could not sign you up just now. Please try again.');
+          }
+        })
+        .catch(function () {
+          fail('Could not sign you up just now. Please try again.');
+        });
+    }
+
+    btn.addEventListener('click', submit);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); submit(); }
+    });
+  });
+</script>
