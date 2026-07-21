@@ -6,8 +6,10 @@ const published = (await getCollection('guide'))
   .filter((g) => g.data.published)
   .sort((a, b) => (a.data.driveMinsFromLondon ?? 9999) - (b.data.driveMinsFromLondon ?? 9999));
 
-const featured = published[0] || null;
-const rest = published.slice(1);
+// The hero is whichever guide is flagged featured: true in its front matter.
+// If none is flagged, fall back to the nearest to London (the previous behaviour).
+const featured = published.find((g) => g.data.featured) || published[0] || null;
+const rest = published.filter((g) => g.slug !== featured?.slug);
 
 // Regions for the browse section
 const regionSet = Array.from(new Set(published.map((g) => g.data.region))).sort();
@@ -148,6 +150,7 @@ function driveLabel(mins) {
           <a href="/guides/category/food-first">Food first</a>
           <a href="/guides/category/slow-and-quiet">Slow &amp; quiet</a>
           <a href="/guides/category/city-weekends">City weekends</a>
+          <a href="/guides/category/family-friendly">Family friendly</a>
           <a href="/guides/category/dog-friendly">With the dog</a>
         </div>
         <p class="note">Every guide is written after a real trip, so both lists grow one weekend at a time.</p>
