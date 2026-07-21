@@ -1,3 +1,6 @@
+---
+import BriefSignup from './BriefSignup.astro';
+---
 <footer class="site">
   <div class="wrap foot-inner">
     <div class="foot-top">
@@ -27,6 +30,13 @@
           <a href="/the-weekend-brief">The Weekend Brief</a>
         </div>
       </nav>
+      <div class="foot-signup">
+        <BriefSignup
+          variant="footer"
+          heading="One email, every Thursday"
+          lede="Where I'd point you this weekend, and where to stay when you get there."
+        />
+      </div>
     </div>
     <div class="foot-legal">
       <p class="disc">Some links to places to stay earn us a small commission. It never changes what we recommend.</p>
@@ -34,3 +44,10 @@
     </div>
   </div>
 </footer>
+
+<style>
+  .foot-signup { flex: 1 1 320px; max-width: 400px; }
+  @media (max-width: 900px) {
+    .foot-signup { flex-basis: 100%; max-width: 480px; padding-top: 8px; }
+  }
+</style>
