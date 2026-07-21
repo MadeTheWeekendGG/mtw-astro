@@ -66,8 +66,6 @@ It is a five minute drive from Whitlingham into the centre, and this is where yo
 
 That is more than ten pounds saved on a four minute walk, which is the sort of thing nobody tells you and everybody wishes they had known.
 
-![The Norman keep of Norwich Castle in low winter sun against a clear blue sky](/images/norwich-castle-keep-exterior.jpg)
-
 ### Norwich Cathedral
 
 Free to walk into, and one of the finest Norman buildings in England. Spend longer than you think you need to. The nave, the cloisters, the sheer scale of it.
@@ -91,6 +89,8 @@ My pick is Taste of Shanghai, run by a husband and wife who could not be friendl
 The Norman keep has recently reopened after a long redevelopment, restored as a royal palace, and it is the reason to go.
 
 Be aware of the cost, because it has gone up a little with the reopening. Adult admission is £17 on the door and £15.30 if you book at least a day in advance. Children aged four to eighteen are £14.50 on the door, £13.05 in advance. A family of four is therefore around £63 on the day, which is a real amount of money and worth deciding on rather than wandering into.
+
+![The Norman keep of Norwich Castle in low winter sun against a clear blue sky](/images/norwich-castle-keep-exterior.jpg)
 
 Two things soften it. Booking ahead saves ten percent. And there is a twilight ticket at £2.50 for the last hour before closing, sold on the door only, which is a very good deal if you are happy to move at pace.
 
