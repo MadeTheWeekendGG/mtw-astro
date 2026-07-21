@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import BriefSignup from '../../components/BriefSignup.astro';
 
 const CATEGORIES = ['Coast', 'Hills & big walks', 'Food first', 'Slow & quiet', 'City weekends', 'Family friendly', 'Dog-friendly'];
 function catSlug(c) { return c.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
@@ -58,6 +59,13 @@ function driveLabel(mins) {
       </div>
     )}
   </div>
+</section>
+<section class="light" style="border-top:1px solid rgba(28,36,29,0.12);padding-bottom:clamp(24px,4vw,40px);">
+  <BriefSignup
+    variant="compact"
+    heading="Know when the next one lands"
+    lede="One email each Thursday: where to go this weekend, and where to stay when you get there."
+  />
 </section>
 <style>
   .chip { padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(28,36,29,0.2); font-size: 14px; font-weight: 500; color: var(--forest-deep); background: transparent; transition: all 0.15s ease; }
