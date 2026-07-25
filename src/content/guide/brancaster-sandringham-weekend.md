@@ -12,7 +12,7 @@ lat: 52.9463
 lng: 0.7302
 categories: ["Coast", "Slow & quiet", "Food first"]
 dogFriendly: true
-published: false
+published: true
 featured: false
 quickFacts:
   bestBase: "The Hoste, Burnham Market"
