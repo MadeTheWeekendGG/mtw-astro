@@ -16,7 +16,7 @@ published: true
 featured: false
 quickFacts:
   bestBase: "The Hoste, Burnham Market"
-  bestBasePrice: "from around £130 a night in late summer"
+  bestBasePrice: "around £130 a night in late summer"
   bestBaseLink: "https://booking.stay22.com/madetheweekend/iTB5YL5DHR"
   idealFor: "Couples who want a beach, a good dinner and a proper day out, in that order"
   getThere: "About 1 hour 45 from Cambridge, around 2 hours 45 from London, 50 minutes from Norwich"
