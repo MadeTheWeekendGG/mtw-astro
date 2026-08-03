@@ -104,6 +104,8 @@ Free, five floors, and we badly underestimated it. Three hours planned, four and
 
 Two objects to look for. Henry VIII's horned helmet is the museum's own emblem and deserves to be: it has a grimacing face, spectacles and a pair of ram's horns, and it is beautiful and hideous at the same time in a way that is quite hard to look away from. It came from Maximilian I as a gift to Henry in 1511, part of a full suit of armour that was later scrapped, leaving just the head. Then find the Vickers Maxim Mark I, the British Army's main machine gun through the First World War. Sitting quietly in a case, having decided a great deal.
 
+![Henry VIII's horned helmet at the Royal Armouries, a steel face with spectacles, a grimace and curled ram's horns](/images/henry-viii-horned-helmet-royal-armouries-leeds.jpg)
+
 There was a Genghis Khan exhibition on when we went, a small extra charge on top of the free entry, and worth it. It runs until early November 2026, tickets are £9 an adult with under sixteens free, it is on the fourth floor, and about forty five minutes covers it.
 
 There are often other live events. Not long after our visit there was a series of Mongolian horse shows, completely free live demonstrations, so it is worth checking the website to see what is on when you go.
