@@ -22,11 +22,24 @@ const mapMarker = '[[STAY22MAP]]';
 // background on the section above, so it is untouched and still loads at once.
 const lazyImages = (html) => html.replace(/<img /g, '<img loading="lazy" decoding="async" ');
 
+// Affiliate links written inline in the markdown get rel="sponsored nofollow"
+// automatically, so a guide never has to remember it. Add a host here when a new
+// affiliate programme goes live.
+const AFFILIATE_HOSTS = ['booking.stay22.com', 'amazon.co.uk', 'amzn.to'];
+const sponsoredLinks = (html) =>
+  html.replace(/<a ([^>]*href="https?:\/\/([^"\/]+)[^"]*"[^>]*)>/g, (tag, attrs, host) => {
+    const isAffiliate = AFFILIATE_HOSTS.some((h) => host === h || host.endsWith(`.${h}`));
+    if (!isAffiliate || /\srel=/.test(` ${attrs}`)) return tag;
+    return `<a ${attrs} rel="sponsored nofollow">`;
+  });
+
+const renderBody = (html) => sponsoredLinks(lazyImages(html));
+
 const proc = await createMarkdownProcessor({});
 const parts = rawBody.split(mapMarker);
-const bodyBefore = lazyImages((await proc.render(parts[0])).code);
+const bodyBefore = renderBody((await proc.render(parts[0])).code);
 const bodyAfter = parts.length > 1
-  ? lazyImages((await proc.render(parts.slice(1).join(mapMarker))).code)
+  ? renderBody((await proc.render(parts.slice(1).join(mapMarker))).code)
   : null;
 
 const faqSchema = (d.faq && d.faq.length) ? {
