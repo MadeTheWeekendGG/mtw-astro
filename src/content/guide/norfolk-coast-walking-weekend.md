@@ -13,7 +13,7 @@ lng: 0.8511
 categories: ["Coast", "Hills & big walks"]
 dogFriendly: true
 published: true
-featured: true
+featured: false
 quickFacts:
   bestBase: "The Globe Inn, Wells-next-the-Sea"
   bestBasePrice: "£150 a night, up to £300 for the better rooms"
