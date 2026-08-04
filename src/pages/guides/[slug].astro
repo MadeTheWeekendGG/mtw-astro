@@ -14,18 +14,20 @@ export async function getStaticPaths() {
 
 const { guide } = Astro.props;
 const d = guide.data;
-const { Content } = await guide.render();
 
 const rawBody = guide.body || '';
 const mapMarker = '[[STAY22MAP]]';
-let bodyBefore = null;
-let bodyAfter = null;
-if (rawBody.includes(mapMarker)) {
-  const proc = await createMarkdownProcessor({});
-  const parts = rawBody.split(mapMarker);
-  bodyBefore = (await proc.render(parts[0])).code;
-  bodyAfter = (await proc.render(parts.slice(1).join(mapMarker))).code;
-}
+
+// Body images load lazily and decode off the main thread. The hero is a CSS
+// background on the section above, so it is untouched and still loads at once.
+const lazyImages = (html) => html.replace(/<img /g, '<img loading="lazy" decoding="async" ');
+
+const proc = await createMarkdownProcessor({});
+const parts = rawBody.split(mapMarker);
+const bodyBefore = lazyImages((await proc.render(parts[0])).code);
+const bodyAfter = parts.length > 1
+  ? lazyImages((await proc.render(parts.slice(1).join(mapMarker))).code)
+  : null;
 
 const faqSchema = (d.faq && d.faq.length) ? {
   '@context': 'https://schema.org',
@@ -83,14 +85,12 @@ const articleSchema = {
       )}
 
       <article class="guide-body">
-        {bodyBefore !== null ? (
+        <Fragment set:html={bodyBefore} />
+        {bodyAfter !== null && (
           <>
-            <Fragment set:html={bodyBefore} />
             <Stay22Map address={d.mapLocation || `${d.region}, UK`} label="Compare places to stay nearby" />
             <Fragment set:html={bodyAfter} />
           </>
-        ) : (
-          <Content />
         )}
       </article>
 
@@ -163,5 +163,3 @@ const articleSchema = {
   .faq-answer { padding: 0 0 20px; }
   .faq-answer p { margin: 0; color: var(--ink-soft); font-size: 15.5px; line-height: 1.65; }
 </style>
-
-
