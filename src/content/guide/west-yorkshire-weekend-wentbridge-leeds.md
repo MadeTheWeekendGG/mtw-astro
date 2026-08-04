@@ -125,7 +125,7 @@ There is a small gift shop and a café on site if you are that way inclined, ope
 
 ## Where to stay
 
-Wentbridge House, and it is not a close call.
+Wentbridge House, and it is not a close call. You can [check dates and prices at Wentbridge House here](https://booking.stay22.com/madetheweekend/mepopwI5bG).
 
 We had the Superior Double, which is effectively the standard room. Spacious, spotless, and a very good bed. The grounds are quiet enough that we both slept properly, which in a hotel a few hundred metres from the A1 is not a given: the valley does the work. Breakfast is cooked fresh to order and was lovely. All in, around £170 a night.
 
