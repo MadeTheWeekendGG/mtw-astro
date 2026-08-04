@@ -12,7 +12,8 @@ lat: 53.651096
 lng: -1.262536
 categories: ["Food first", "City weekends", "Slow & quiet"]
 dogFriendly: false
-published: false
+published: true
+featured: true
 quickFacts:
   bestBase: "Wentbridge House Hotel, Wentbridge"
   bestBasePrice: "around £170 a night with breakfast"
